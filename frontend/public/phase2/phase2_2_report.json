@@ -1,0 +1,61 @@
+{
+    "ohrc_product": "ch2_ohr_ncp_20260103T1005176450_d_img_d18",
+    "lro_product": "M176219771RE",
+    "overlap_status": "PARTIAL_OVERLAP",
+    "intersection_area": 0.14074176259322083,
+    "common_roi": {
+        "lon_range": [
+            25.22628239056222,
+            25.526282390562216
+        ],
+        "lat_range": [
+            -84.97721714402456,
+            -84.92721714402455
+        ]
+    },
+    "ohrc_pixel_mapping": [
+        {
+            "x": 8765.78515625,
+            "y": 41468.6484375
+        },
+        {
+            "x": 5977.15771484375,
+            "y": 40149.1484375
+        },
+        {
+            "x": 3579.76171875,
+            "y": 45566.2109375
+        },
+        {
+            "x": 6384.8203125,
+            "y": 46902.29296875
+        }
+    ],
+    "lro_pixel_mapping": [
+        {
+            "x": 1611.546875,
+            "y": 6106.52685546875
+        },
+        {
+            "x": 606.6913452148438,
+            "y": 6169.751953125
+        },
+        {
+            "x": 898.3052368164062,
+            "y": 6941.4501953125
+        },
+        {
+            "x": 1910.5419921875,
+            "y": 6876.6318359375
+        }
+    ],
+    "target_gsd": 1.212,
+    "ohrc_scale_factor": 0.20627062706270627,
+    "sift_keypoints_ohrc": 6814,
+    "sift_keypoints_lro": 4998,
+    "candidate_matches": 7,
+    "verified_matches": 4,
+    "ransac_inliers": 4,
+    "reprojection_error": 5.0,
+    "decision": "FLAG"
+}

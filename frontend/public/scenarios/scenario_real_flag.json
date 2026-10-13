@@ -1,0 +1,21 @@
+{
+  "mode": "REAL",
+  "ohrc_product": "ch2_ohr_ncp_20260103T1005176450_d_img_d18",
+  "lro_product": "M176219771RE",
+  "overlap_status": "PARTIAL OVERLAP",
+  "intersection_area": "0.140 sq deg",
+  "target_gsd": "1.212 m/px",
+  "sift_keypoints_ohrc": 6814,
+  "sift_keypoints_lro": 4998,
+  "candidate_matches": 7,
+  "verified_matches": 4,
+  "inlier_ratio": "57%",
+  "reprojection_error": "5.0 px",
+  "decision": "FLAG",
+  "reason": "Only 4 verified geometric inliers; insufficient evidence for robust acceptance.",
+  "ohrc_preview": "/real-data/ohrc_preview.png",
+  "lro_preview": "/real-data/lro_preview.png",
+  "ohrc_crop": "/real-data/ohrc_crop.png",
+  "lro_crop": "/real-data/lro_crop.png",
+  "footprint_img": "/phase2/footprints_diagnostic.png"
+}

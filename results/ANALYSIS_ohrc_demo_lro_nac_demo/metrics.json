@@ -1,0 +1,10 @@
+{
+    "candidates": 646,
+    "inliers": 646,
+    "inlier_ratio": 1.0,
+    "decision": "ACCEPT",
+    "decision_reasons": [
+        "Strong geometric consensus"
+    ],
+    "execution_time_s": 0.13
+}

@@ -1,0 +1,18 @@
+{
+  "candidates": 115,
+  "inliers": 7,
+  "inlier_ratio": 6.1,
+  "reprojection_error_px": 0.777,
+  "decision": "FLAG",
+  "ohrc_kp": 26424,
+  "lro_kp": 16288,
+  "homography_computed": true,
+  "reason": "7 RANSAC inliers from 115 candidates.",
+  "outputs": {
+    "registered_image": "/outputs/registered_image.png",
+    "matched_tiepoints": "/outputs/matched_tiepoints.png",
+    "dem_product": "/outputs/dem_product.png",
+    "uncertainty_map": "/outputs/uncertainty_map.png",
+    "footprints_metadata": "/outputs/footprints_metadata.png"
+  }
+}

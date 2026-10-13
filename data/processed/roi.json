@@ -1,0 +1,16 @@
+{
+    "status": "UNKNOWN",
+    "fallback_used": true,
+    "ohrc_roi_bounds": {
+        "x": 5000,
+        "y": 49537,
+        "w": 2000,
+        "h": 2000
+    },
+    "lro_roi_bounds": {
+        "x": 1532,
+        "y": 25112,
+        "w": 2000,
+        "h": 2000
+    }
+}

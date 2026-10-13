@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LunarMatch-X</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Exo+2:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070F; --silver:#C9D1D9; --dim:#7D8793; --faint:#4A5361;
+  --blue:#3B82F6; --cyan:#22D3EE; --green:#22C55E; --amber:#F59E0B; --red:#EF4444;
+  --glass:rgba(13,20,38,.58); --border:rgba(148,163,184,.14); --border-hi:rgba(34,211,238,.35);
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --head:"Orbitron","Exo 2",sans-serif; --sub:"Exo 2",sans-serif; --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--silver);font-family:var(--body);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-x:hidden}
+button,select,input{font:inherit;color:inherit}
+.mono{font-family:var(--mono)}
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+.gridlines{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 30%,transparent 80%)}
+.horizon{position:fixed;left:-30vw;right:-30vw;bottom:-62vh;height:80vh;border-radius:50%;z-index:0;pointer-events:none;
+  background-size:520px;background-color:#0b0f18;opacity:.22;filter:grayscale(1) contrast(1.1);
+  box-shadow:0 -2px 30px rgba(34,211,238,.25),inset 0 18px 60px rgba(5,7,15,.95)}
+.app{position:relative;z-index:1;max-width:1720px;margin:0 auto;padding:0 28px 40px}
+
+/* header */
+header.top{display:flex;align-items:center;gap:24px;padding:18px 0 14px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:48px;height:48px;flex:none}
+.brand h1{font-family:var(--head);font-weight:900;font-size:24px;letter-spacing:.14em;color:#E6EDF3;text-shadow:0 0 18px rgba(34,211,238,.35)}
+.brand h1 span{color:var(--cyan)}
+.tagline{font-family:var(--sub);font-size:13px;color:var(--dim);letter-spacing:.06em}
+.hdr-mid{flex:1;display:flex;gap:10px;align-items:center;font-size:11.5px;color:var(--dim);letter-spacing:.04em;min-width:260px}
+.hdr-mid b{color:var(--silver);font-weight:500}
+.hdr-right{display:flex;align-items:center;gap:14px;font-size:12px}
+.team{display:flex;align-items:center;gap:6px;color:var(--silver);padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:rgba(15,23,42,.5)}
+.team svg{width:14px;height:14px;color:var(--cyan)}
+.clock{color:var(--dim)}
+.badge-proto{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.03em;
+  color:#FCD34D;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.4);box-shadow:0 0 16px -4px rgba(245,158,11,.4)}
+.badge-proto .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.6)}50%{box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+
+/* stepper */
+.stepper{display:flex;align-items:center;gap:0;margin:18px 0 22px;padding:6px;border:1px solid var(--border);border-radius:14px;background:rgba(10,15,30,.55);backdrop-filter:blur(10px)}
+.step{flex:none;display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:10px;border:1px solid transparent;background:none;cursor:pointer;transition:all .25s}
+.step .n{font-family:var(--head);font-size:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--faint);color:var(--dim)}
+.step .l{font-family:var(--sub);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.step:hover:not(:disabled){background:rgba(59,130,246,.08)}
+.step.active{background:rgba(34,211,238,.08);border-color:var(--border-hi);box-shadow:0 0 20px -6px rgba(34,211,238,.5)}
+.step.active .n{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 10px rgba(34,211,238,.5)}
+.step.active .l{color:#E6EDF3}
+.step.done .n{border-color:var(--green);color:var(--green)}
+.step:disabled{cursor:not-allowed;opacity:.45}
+.step-link{flex:1;height:1px;min-width:20px;background:linear-gradient(90deg,var(--faint),transparent 50%,var(--faint));opacity:.6}
+
+/* sections */
+.sec{display:none;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease}
+.sec.shown{display:block}
+.sec.visible{opacity:1;transform:none}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.sec-idx{font-family:var(--head);font-size:13px;color:var(--cyan);padding:3px 8px;border:1px solid var(--border-hi);border-radius:6px}
+.sec-head h2{font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:#E6EDF3}
+.sec-sub{font-size:12px;color:var(--dim)}
+
+/* cards */
+.card{position:relative;background:linear-gradient(180deg,rgba(16,24,44,.62),rgba(7,11,22,.6));border:1px solid var(--border);border-radius:14px;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 18px 40px -18px rgba(0,0,0,.8),0 0 28px -16px rgba(34,211,238,.35);padding:16px}
+.card-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-family:var(--sub);font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#DCE3EA}
+.card-head svg{width:15px;height:15px;color:var(--cyan)}
+.card-head .sp{flex:1}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:none;font-weight:400;padding:2px 7px;border-radius:5px;border:1px solid var(--border);color:var(--dim)}
+.tag.cyan{color:var(--cyan);border-color:rgba(34,211,238,.35)}
+.tag.amber{color:var(--amber);border-color:rgba(245,158,11,.4)}
+
+/* setup */
+.setup-grid{display:grid;grid-template-columns:1fr 1fr 430px;gap:18px}
+.drop{position:relative;display:block;height:330px;border-radius:10px;overflow:hidden;background:#000;border:1px dashed rgba(148,163,184,.22);cursor:pointer;transition:border-color .2s}
+.drop:hover,.drop.over{border-color:var(--cyan)}
+.drop img{width:100%;height:100%;object-fit:contain;display:block}
+.drop .hint{position:absolute;inset:auto 0 0 0;padding:26px 12px 10px;font-size:12px;color:var(--silver);background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .2s}
+.drop:hover .hint{opacity:1}
+.drop .hint svg{width:14px;height:14px}
+.reticle::before,.reticle::after,.reticle i::before,.reticle i::after{content:"";position:absolute;width:16px;height:16px;border-color:var(--cyan);border-style:solid;opacity:.7}
+.reticle::before{top:8px;left:8px;border-width:1.5px 0 0 1.5px}
+.reticle::after{top:8px;right:8px;border-width:1.5px 1.5px 0 0}
+.reticle i::before{bottom:8px;left:8px;border-width:0 0 1.5px 1.5px}
+.reticle i::after{bottom:8px;right:8px;border-width:0 1.5px 1.5px 0}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:12px 0;font-size:11.5px}
+.meta dt{color:var(--dim)} .meta dd{color:var(--silver);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.field{display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;font-family:var(--sub);font-weight:600}
+select{appearance:none;background:rgba(5,9,20,.8) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2322D3EE' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border:1px solid var(--border);border-radius:8px;padding:9px 32px 9px 11px;font-family:var(--body);font-size:13.5px;text-transform:none;letter-spacing:0;font-weight:500;color:#E6EDF3;cursor:pointer}
+select:focus{outline:none;border-color:var(--cyan)}
+.linkbtn{background:none;border:none;color:var(--cyan);cursor:pointer;font-size:11.5px;text-decoration:underline;text-underline-offset:3px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.chip{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:rgba(5,9,20,.55)}
+.chip .k{font-family:var(--sub);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:5px}
+.chip .k svg{width:12px;height:12px}
+.chip .v{font-family:var(--mono);font-size:17px;color:#E6EDF3;margin-top:3px}
+.chip .v small{font-size:11px;color:var(--dim)}
+.chip.warn{border-color:rgba(245,158,11,.45)} .chip.warn .v{color:#FCD34D}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px;border-radius:10px;border:1px solid var(--border);background:rgba(5,9,20,.6);margin:6px 0 8px}
+.seg button{padding:9px 8px;border:1px solid transparent;border-radius:7px;background:none;cursor:pointer;font-family:var(--sub);font-weight:600;font-size:12.5px;letter-spacing:.04em;color:var(--dim);transition:all .2s}
+.seg button.on{color:#E6EDF3;background:rgba(59,130,246,.18);border-color:rgba(59,130,246,.5)}
+.seg button.on.polar{background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.5)}
+.scen-desc{font-size:12px;color:var(--dim);min-height:36px;margin-bottom:18px}
+.run-btn{width:100%;position:relative;padding:18px;border-radius:12px;border:1px solid rgba(34,211,238,.7);cursor:pointer;overflow:hidden;
+  background:linear-gradient(135deg,rgba(59,130,246,.35),rgba(34,211,238,.25));font-family:var(--head);font-weight:700;font-size:16px;letter-spacing:.2em;color:#fff;
+  box-shadow:0 0 30px -4px rgba(34,211,238,.6),inset 0 0 20px rgba(34,211,238,.2);text-shadow:0 0 10px rgba(34,211,238,.8);transition:transform .15s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:12px}
+.run-btn:hover{transform:translateY(-1px);box-shadow:0 0 44px -2px rgba(34,211,238,.8),inset 0 0 24px rgba(34,211,238,.3)}
+.run-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:skewX(-20deg);animation:sheen 3.2s infinite}
+@keyframes sheen{0%{left:-60%}60%,100%{left:130%}}
+.run-btn svg{width:20px;height:20px}
+.run-btn:disabled{opacity:.5;cursor:wait}
+.params-foot{margin-top:14px;font-size:11px;color:var(--dim);display:flex;gap:6px;align-items:flex-start}
+.params-foot svg{width:13px;height:13px;flex:none;margin-top:2px}
+
+/* pipeline */
+.pipe-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--dim);margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.pipe-top b{color:var(--cyan);font-weight:500}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 22px;position:relative}
+.stage{position:relative;display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(5,9,20,.45);transition:all .35s}
+.stage:not(:nth-child(5n))::after{content:"";position:absolute;top:38px;right:-23px;width:22px;height:2px;background:var(--faint);opacity:.5;transition:background .3s}
+.stage:is(.done,.warn,.fail):not(:nth-child(5n))::after{background:var(--green);opacity:.8}
+.stage:is(.warn,.fail) .st-title{color:var(--silver)}
+.stage:nth-child(5)::before{content:"";position:absolute;right:30px;bottom:-27px;width:2px;height:26px;background:var(--faint);opacity:.5}
+.stage.done:nth-child(5)::before{background:var(--green);opacity:.8}
+.ring{position:relative;width:52px;height:52px;flex:none}
+.ring svg{width:52px;height:52px;transform:rotate(-90deg)}
+.ring .track{fill:none;stroke:rgba(148,163,184,.15);stroke-width:3}
+.ring .prog{fill:none;stroke:var(--cyan);stroke-width:3;stroke-linecap:round;stroke-dasharray:150.8;stroke-dashoffset:150.8;filter:drop-shadow(0 0 4px rgba(34,211,238,.8))}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--head);font-size:14px;color:var(--dim);transition:color .3s}
+.st-title{font-family:var(--sub);font-weight:600;font-size:13px;line-height:1.3;color:var(--dim);transition:color .3s}
+.st-sub{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:2px}
+.st-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint);margin-top:6px}
+.stage.running{border-color:var(--border-hi);background:rgba(34,211,238,.06);box-shadow:0 0 26px -8px rgba(34,211,238,.7)}
+.stage.running .num,.stage.running .st-title{color:#E6EDF3}
+.stage.running .st-meta{color:var(--cyan)}
+.stage.done .prog{stroke:var(--green);filter:drop-shadow(0 0 4px rgba(34,197,94,.7))}
+.stage.done .num{color:var(--green)} .stage.done .st-title{color:var(--silver)} .stage.done .st-meta{color:var(--green)}
+.stage.warn .prog{stroke:var(--amber);filter:drop-shadow(0 0 4px rgba(245,158,11,.7))}
+.stage.warn .num,.stage.warn .st-meta{color:var(--amber)} .stage.warn{border-color:rgba(245,158,11,.35)}
+.stage.fail .prog{stroke:var(--red);filter:drop-shadow(0 0 4px rgba(239,68,68,.8))}
+.stage.fail .num,.stage.fail .st-meta{color:var(--red)} .stage.fail{border-color:rgba(239,68,68,.45);box-shadow:0 0 26px -8px rgba(239,68,68,.6)}
+.pbar{height:3px;border-radius:2px;background:rgba(148,163,184,.12);margin-top:20px;overflow:hidden}
+.pbar div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));box-shadow:0 0 10px var(--cyan);transition:width .4s}
+.pipe-bottom{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+.log{height:300px;overflow-y:auto;font-family:var(--mono);font-size:12px;line-height:1.7;padding:10px 12px;border-radius:8px;background:rgba(2,4,10,.75);border:1px solid rgba(34,211,238,.1)}
+.log::-webkit-scrollbar{width:6px}.log::-webkit-scrollbar-thumb{background:rgba(148,163,184,.25);border-radius:3px}
+.log .ln{white-space:pre-wrap;animation:fadein .25s ease}
+.log .t{color:var(--faint)} .log .s{color:var(--cyan)} .log .ok{color:var(--green)} .log .warn{color:var(--amber)} .log .err{color:var(--red)} .log .inf{color:var(--silver)}
+.log .cursor{display:inline-block;width:7px;height:13px;background:var(--cyan);vertical-align:middle;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}} @keyframes fadein{from{opacity:0;transform:translateX(-4px)}to{opacity:1}}
+.live{display:grid;gap:8px}
+.live .row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 10px;border-radius:8px;background:rgba(5,9,20,.5);border:1px solid var(--border)}
+.live .row span{font-family:var(--sub);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.live .row b{font-family:var(--mono);font-weight:500;font-size:15px;color:#E6EDF3}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:10px;border:1px solid var(--border-hi);background:rgba(34,211,238,.1);cursor:pointer;
+  font-family:var(--sub);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;color:#E6EDF3;transition:all .2s}
+.btn:hover:not(:disabled){background:rgba(34,211,238,.2);box-shadow:0 0 20px -4px rgba(34,211,238,.6)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.btn svg{width:15px;height:15px}
+.btn.ghost{background:rgba(5,9,20,.5);border-color:var(--border)}
+
+/* results */
+.verdict{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,640px);gap:26px;align-items:center;padding:20px 24px;overflow:hidden}
+.verdict::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,var(--vglow),transparent 60%);pointer-events:none}
+.vbadge{position:relative;display:flex;align-items:center;gap:14px;padding:16px 26px;border-radius:14px;border:1.5px solid var(--vc);color:var(--vc);background:rgba(0,0,0,.35);box-shadow:0 0 36px -6px var(--vc),inset 0 0 22px -8px var(--vc)}
+.vbadge svg{width:38px;height:38px}
+.vbadge .w{font-family:var(--head);font-weight:900;font-size:34px;letter-spacing:.14em;text-shadow:0 0 18px var(--vc)}
+.vmid{position:relative}
+.vconf{display:flex;align-items:baseline;gap:10px}
+.vconf b{font-family:var(--head);font-size:40px;font-weight:700;color:#E6EDF3}
+.vconf span{font-family:var(--sub);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.vreason{font-family:var(--mono);font-size:13.5px;color:var(--vc);margin-top:4px}
+.vpair{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:8px}
+.gates{position:relative;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5px 14px;font-size:11.5px}
+.gate{min-width:0;display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;background:rgba(5,9,20,.5);border:1px solid var(--border)}
+.gate .c{font-family:var(--mono);color:var(--dim);width:30px}
+.gate .nm{flex:1;color:var(--silver);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gate .st{font-family:var(--mono);font-size:10.5px;padding:1px 6px;border-radius:4px}
+.st.pass{color:var(--green);background:rgba(34,197,94,.12)} .st.warn{color:var(--amber);background:rgba(245,158,11,.12)} .st.fail{color:var(--red);background:rgba(239,68,68,.15)}
+.metrics{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;margin:16px 0}
+.metric{padding:12px 14px}
+.metric .k{font-family:var(--sub);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:6px;min-height:28px;line-height:1.25}
+.metric .k i.d{width:7px;height:7px;border-radius:50%;flex:none;background:var(--green);box-shadow:0 0 6px var(--green)}
+.metric .k i.d.warn{background:var(--amber);box-shadow:0 0 6px var(--amber)} .metric .k i.d.fail{background:var(--red);box-shadow:0 0 6px var(--red)}
+.metric .v{font-family:var(--head);font-size:24px;font-weight:700;color:#E6EDF3;margin-top:6px;white-space:nowrap}
+.metric .v small{font-family:var(--mono);font-size:11px;color:var(--dim);font-weight:400;margin-left:3px}
+.metric .h{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px}
+.r-row{display:grid;gap:16px;margin-bottom:16px}
+.r1{grid-template-columns:1.35fr 1fr}
+.r3{grid-template-columns:330px 1fr 1fr}
+.cvbox{position:relative;width:100%;border-radius:10px;overflow:hidden;background:#000;border:1px solid rgba(148,163,184,.1)}
+.cvbox canvas{display:block}
+.toolbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.tb{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:7px;border:1px solid var(--border);background:rgba(5,9,20,.6);cursor:pointer;font-size:11.5px;color:var(--silver);font-family:var(--body);transition:all .2s}
+.tb svg{width:13px;height:13px}
+.tb:hover{border-color:var(--border-hi)}
+.tb.on{border-color:var(--cyan);color:var(--cyan);background:rgba(34,211,238,.08)}
+.rng{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--dim);font-family:var(--mono)}
+input[type=range]{accent-color:var(--cyan);width:100px}
+.legend{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--dim);font-family:var(--mono)}
+.legend .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.cbar{flex:1;min-width:160px;height:9px;border-radius:5px;background:linear-gradient(90deg,#1e3a8a,#3B82F6,#22D3EE,#22C55E,#F59E0B,#EF4444)}
+.cbar-wrap{display:flex;align-items:center;gap:8px;flex:1}
+.occ-wrap{position:relative;aspect-ratio:var(--ar,0.77);max-height:360px;margin:0 auto;border-radius:10px;overflow:hidden;background:#000 center/cover}
+.occ-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);gap:2px;padding:2px;background:rgba(5,7,15,.55)}
+.occ-cell{border-radius:3px;display:grid;place-items:center;font-family:var(--mono);font-size:9.5px;color:rgba(201,209,217,.4);border:1px solid rgba(148,163,184,.08);transition:all .5s}
+.occ-cell.on{color:#E6FAFF;border-color:rgba(34,211,238,.6)}
+.occ-stats{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.occ-stats b{color:#E6EDF3;font-weight:500}
+.bench-note{font-size:10.5px;color:var(--amber);font-family:var(--mono);margin-top:8px;display:flex;gap:6px}
+.next-row{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+
+/* export */
+.export-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}
+.exp{display:flex;flex-direction:column;gap:10px}
+.exp .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(34,211,238,.08);border:1px solid var(--border-hi);color:var(--cyan)}
+.exp .ic svg{width:20px;height:20px}
+.exp h3{font-family:var(--sub);font-weight:600;font-size:15px;color:#E6EDF3;letter-spacing:.03em}
+.exp p{font-size:12px;color:var(--dim);flex:1}
+.exp .fn{font-family:var(--mono);font-size:11px;color:var(--faint);word-break:break-all}
+pre.manifest{font-family:var(--mono);font-size:12px;line-height:1.6;max-height:520px;overflow:auto;padding:14px 16px;border-radius:10px;background:rgba(2,4,10,.8);border:1px solid rgba(34,211,238,.1);color:var(--silver)}
+.j-k{color:#7DD3FC}.j-s{color:#86EFAC}.j-n{color:#FCD34D}.j-b{color:#F0ABFC}
+.prov-grid{display:grid;grid-template-columns:1fr 340px;gap:18px}
+.kv{display:grid;gap:8px}
+.kv div{padding:9px 11px;border-radius:8px;background:rgba(5,9,20,.5);border:1px solid var(--border)}
+.kv div>span{display:block;font-family:var(--sub);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.kv b{font-family:var(--mono);font-weight:500;font-size:12.5px;color:#E6EDF3;word-break:break-all}
+footer{margin-top:34px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--dim);font-family:var(--mono)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;padding:10px 16px;border-radius:10px;background:rgba(10,16,30,.95);border:1px solid var(--border-hi);font-size:12.5px;z-index:50;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:1500px){.metrics{grid-template-columns:repeat(5,1fr)}.verdict{grid-template-columns:auto 1fr}.gates{grid-column:1/-1}}
+@media (max-width:1200px){.setup-grid{grid-template-columns:1fr 1fr}.params{grid-column:1/-1}.stages{grid-template-columns:repeat(2,1fr)}
+  .stage::after,.stage::before{display:none}.r1,.r3,.pipe-bottom,.prov-grid{grid-template-columns:1fr}.export-grid{grid-template-columns:1fr 1fr}.hdr-mid{order:3;flex-basis:100%}}
+@media (max-width:720px){.app{padding:0 16px 30px}.setup-grid,.export-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.stages{grid-template-columns:1fr}
+  .verdict{grid-template-columns:1fr}.gates{grid-template-columns:1fr}.step .l{display:none}.brand h1{font-size:19px}.hdr-right{flex-wrap:wrap}.drop{height:260px}}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+<div class="gridlines"></div>
+<div class="horizon" id="horizon"></div>
+
+<div class="app">
+<header class="top">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+      <defs><radialGradient id="mg" cx="38%" cy="35%" r="70%"><stop offset="0" stop-color="#E6EDF3"/><stop offset=".6" stop-color="#8B95A3"/><stop offset="1" stop-color="#2A3140"/></radialGradient></defs>
+      <circle cx="24" cy="24" r="11" fill="url(#mg)"/>
+      <circle cx="20" cy="21" r="2.2" fill="#5B6574" opacity=".7"/><circle cx="27" cy="28" r="1.6" fill="#5B6574" opacity=".7"/><circle cx="27" cy="19" r="1" fill="#5B6574" opacity=".7"/>
+      <ellipse id="orb" cx="24" cy="24" rx="21" ry="8" fill="none" stroke="#22D3EE" stroke-width="1" opacity=".7" transform="rotate(-20 24 24)"/>
+      <circle r="2.2" fill="#22D3EE"><animateMotion dur="6s" repeatCount="indefinite" path="M3.27,31.18 A21,8 -20 1,1 44.73,16.82 A21,8 -20 1,1 3.27,31.18"/></circle>
+    </svg>
+    <div>
+      <h1>LUNARMATCH<span>-X</span></h1>
+      <div class="tagline">Unified Physics-Aware Lunar Correspondence Pipeline</div>
+    </div>
+  </div>
+  <div class="hdr-mid mono"><b>SIH26166</b><span>·</span><span>Chandrayaan-2 OHRC / TMC-2 / IIRS → LRO NAC / SELENE TC</span></div>
+  <div class="hdr-right">
+    <div class="team mono"><i data-lucide="users"></i>INNO_CORES_149</div>
+    <div class="clock mono" id="utc">UTC --:--:--</div>
+    <div class="badge-proto"><span class="dot"></span>Prototype · simulated results</div>
+  </div>
+</header>
+
+<nav class="stepper" id="stepper">
+  <button class="step active" data-sec="setup"><span class="n">01</span><span class="l">Mission Setup</span></button><span class="step-link"></span>
+  <button class="step" data-sec="pipeline" disabled><span class="n">02</span><span class="l">Pipeline Execution</span></button><span class="step-link"></span>
+  <button class="step" data-sec="results" disabled><span class="n">03</span><span class="l">Results Dashboard</span></button><span class="step-link"></span>
+  <button class="step" data-sec="export" disabled><span class="n">04</span><span class="l">Export &amp; Provenance</span></button>
+</nav>
+
+<!-- 01 SETUP -->
+<section class="sec shown visible" id="sec-setup">
+  <div class="sec-head"><span class="sec-idx">01</span><h2>Mission Setup</h2><span class="sec-sub mono">Define image pair, sensor configuration and acquisition scenario</span></div>
+  <div class="setup-grid">
+    <div class="card">
+      <div class="card-head"><i data-lucide="satellite"></i>Source (Moving)<span class="sp"></span><span class="tag cyan">CHANDRAYAAN-2</span></div>
+      <label class="drop reticle" id="drop-src"><i></i><img id="thumb-src" alt="Source image preview"><div class="hint"><i data-lucide="upload"></i>Drop image or click to replace source</div><input type="file" id="file-src" accept="image/*" hidden></label>
+      <dl class="meta mono" id="meta-src"></dl>
+      <label class="field">Source sensor
+        <select id="sel-src"><option value="OHRC">CH-2 OHRC · 0.25 m · PAN</option><option value="TMC2">CH-2 TMC-2 · 5 m · PAN (stereo)</option><option value="IIRS">CH-2 IIRS · 80 m · Hyperspectral</option></select>
+      </label>
+    </div>
+    <div class="card">
+      <div class="card-head"><i data-lucide="orbit"></i>Reference (Fixed)<span class="sp"></span><span class="tag amber" id="ref-simtag">SIMULATED FROM SOURCE</span></div>
+      <label class="drop reticle" id="drop-ref"><i></i><img id="thumb-ref" alt="Reference image preview"><div class="hint"><i data-lucide="upload"></i>Drop image or click to load a reference product</div><input type="file" id="file-ref" accept="image/*" hidden></label>
+      <dl class="meta mono" id="meta-ref"></dl>
+      <label class="field">Reference sensor
+        <select id="sel-ref"><option value="NAC">LRO LROC NAC · 0.5 m · PAN</option><option value="TC">SELENE (Kaguya) TC · 10 m · PAN</option></select>
+      </label>
+    </div>
+    <div class="card params">
+      <div class="card-head"><i data-lucide="radar"></i>Pair Characterisation<span class="sp"></span><span class="tag" id="seed-tag">seed —</span></div>
+      <div class="chips" id="chips"></div>
+      <div class="field">Scenario</div>
+      <div class="seg" id="seg-scen"><button class="on" data-v="nominal">Nominal</button><button data-v="polar" class="polar">Polar low-sun (refusal case)</button></div>
+      <div class="scen-desc" id="scen-desc"></div>
+      <button class="run-btn" id="run-btn"><i data-lucide="play"></i>RUN CORRESPONDENCE</button>
+      <div class="params-foot"><i data-lucide="info"></i><span>Deterministic mock engine: identical image pair + configuration always reproduces identical results (seeded from image fingerprint).</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PIPELINE -->
+<section class="sec" id="sec-pipeline">
+  <div class="sec-head"><span class="sec-idx">02</span><h2>Pipeline Execution</h2><span class="sec-sub mono" id="pipe-pair"></span></div>
+  <div class="card">
+    <div class="pipe-top mono"><span id="pipe-status">STANDBY</span><span id="pipe-elapsed">T+00.000 s</span></div>
+    <div class="stages" id="stages"></div>
+    <div class="pbar"><div id="pbar"></div></div>
+  </div>
+  <div class="pipe-bottom">
+    <div class="card"><div class="card-head"><i data-lucide="terminal"></i>Telemetry Log<span class="sp"></span><span class="tag">lmx-core · stdout</span></div><div class="log" id="log"></div></div>
+    <div class="card">
+      <div class="card-head"><i data-lucide="activity"></i>Live Readout</div>
+      <div class="live" id="live"></div>
+      <button class="btn" id="btn-view" style="width:100%;margin-top:14px" disabled><i data-lucide="gauge"></i>View Results Dashboard</button>
+    </div>
+  </div>
+</section>
+
+<!-- 03 RESULTS -->
+<section class="sec" id="sec-results">
+  <div class="sec-head"><span class="sec-idx">03</span><h2>Results Dashboard</h2><span class="sec-sub mono" id="res-sub"></span></div>
+  <div class="card verdict" id="verdict"></div>
+  <div class="metrics" id="metrics"></div>
+
+  <div class="r-row r1">
+    <div class="card">
+      <div class="card-head"><i data-lucide="git-compare"></i>Registered Product<span class="sp"></span>
+        <div class="toolbar">
+          <button class="tb on" id="vw-after">After</button><button class="tb" id="vw-before">Before</button>
+          <button class="tb" id="vw-rim"><i data-lucide="scan-line"></i>Rim overlay</button>
+          <button class="tb" id="vw-zin"><i data-lucide="zoom-in"></i></button><button class="tb" id="vw-zout"><i data-lucide="zoom-out"></i></button><button class="tb" id="vw-reset"><i data-lucide="maximize"></i></button>
+        </div>
+      </div>
+      <div class="cvbox"><canvas id="cv-viewer" style="cursor:grab"></canvas></div>
+      <div class="legend"><span>Drag divider to compare · scroll to zoom · drag to pan</span><span id="vw-info"></span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><i data-lucide="layers"></i>Uncertainty / Validity Map<span class="sp"></span>
+        <span class="rng">opacity<input type="range" id="heat-op" min="0" max="100" value="62"></span>
+      </div>
+      <div class="cvbox"><canvas id="cv-heat"></canvas></div>
+      <div class="legend"><span>σ</span><div class="cbar-wrap"><span id="heat-lo">0.0</span><div class="cbar"></div><span id="heat-hi">—</span></div><span>src px (1σ)</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-head"><i data-lucide="target"></i>Correspondence Visualisation<span class="sp"></span>
+      <div class="toolbar">
+        <span class="rng">links<input type="range" id="m-links" min="40" max="600" value="220"><span id="m-links-v">220</span></span>
+        <button class="tb on" id="m-out">Rejected outliers</button><button class="tb on" id="m-pts">All points</button>
+      </div>
+    </div>
+    <div class="cvbox"><canvas id="cv-match"></canvas></div>
+    <div class="legend">
+      <span><i class="sw" style="background:#22D3EE"></i>conf ≥ 0.80</span><span><i class="sw" style="background:#22C55E"></i>0.60–0.80</span><span><i class="sw" style="background:#F59E0B"></i>&lt; 0.60</span><span><i class="sw" style="background:rgba(239,68,68,.55)"></i>rejected outlier</span><span id="m-info"></span>
+    </div>
+  </div>
+
+  <div class="r-row r3">
+    <div class="card"><div class="card-head"><i data-lucide="grid-3x3"></i>Spatial Distribution<span class="sp"></span><span class="tag">8×8 · ≥5 inliers</span></div>
+      <div class="occ-wrap" id="occ-wrap"><div class="occ-grid" id="occ-grid"></div></div>
+      <div class="occ-stats" id="occ-stats"></div>
+    </div>
+    <div class="card"><div class="card-head"><i data-lucide="move"></i>Residual Vector Field<span class="sp"></span><span class="tag" id="res-scale">×—</span></div>
+      <div class="cvbox"><canvas id="cv-resid"></canvas></div>
+    </div>
+    <div class="card"><div class="card-head"><i data-lucide="activity"></i>Benchmark · OHRC–NAC Equatorial</div>
+      <div id="bench"></div>
+      <div class="bench-note" id="bench-note"></div>
+    </div>
+  </div>
+  <div class="next-row"><button class="btn ghost" id="btn-rerun"><i data-lucide="rotate-ccw"></i>New Run</button><button class="btn" id="btn-export"><i data-lucide="download"></i>Export &amp; Provenance</button></div>
+</section>
+
+<!-- 04 EXPORT -->
+<section class="sec" id="sec-export">
+  <div class="sec-head"><span class="sec-idx">04</span><h2>Export &amp; Provenance</h2><span class="sec-sub mono">All artefacts generated client-side from the simulated run</span></div>
+  <div class="export-grid" id="export-grid"></div>
+  <div class="prov-grid">
+    <div class="card"><div class="card-head"><i data-lucide="fingerprint"></i>Provenance Manifest<span class="sp"></span><button class="tb" id="copy-man"><i data-lucide="copy"></i>Copy</button></div><pre class="manifest" id="manifest"></pre></div>
+    <div class="card"><div class="card-head"><i data-lucide="shield-check"></i>Run Summary</div><div class="kv" id="run-kv"></div></div>
+  </div>
+</section>
+
+<footer><span>Results simulated for UI demonstration; pipeline implementation in progress.</span><span>LunarMatch-X v0.4.0-prototype · INNO_CORES_149 · SIH26166</span></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="sample-image.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script>
+"use strict";
+/* ====================== CONFIG ====================== */
+// PLACEHOLDER baseline — replace with the published SAC-ISRO 2025 SuperGlue figures (OHRC–NAC, equatorial) before external use.
+const BENCHMARK_BASELINE = { label:"SAC-ISRO 2025 · SuperGlue", placeholder:true, rmse:1.35, q95:2.90, ratio:47, occ:58 };
+const VERSION = "0.4.0-prototype";
+const SRC_SENSORS = {
+  OHRC:{id:"OHRC", name:"CH-2 OHRC", gsd:0.25, mod:"PAN", mission:"Chandrayaan-2", inst:"Orbiter High Resolution Camera"},
+  TMC2:{id:"TMC-2", name:"CH-2 TMC-2", gsd:5, mod:"PAN", mission:"Chandrayaan-2", inst:"Terrain Mapping Camera-2"},
+  IIRS:{id:"IIRS", name:"CH-2 IIRS", gsd:80, mod:"HS", mission:"Chandrayaan-2", inst:"Imaging Infrared Spectrometer"}
+};
+const REF_SENSORS = {
+  NAC:{id:"LROC NAC", name:"LRO NAC", gsd:0.5, mod:"PAN", mission:"Lunar Reconnaissance Orbiter", inst:"LROC Narrow Angle Camera"},
+  TC:{id:"TC", name:"SELENE TC", gsd:10, mod:"PAN", mission:"SELENE (Kaguya)", inst:"Terrain Camera"}
+};
+const TH = {inl_fail:80, inl_warn:300, occ_fail:0.50, occ_warn:0.60, hull_fail:0.40, q95_fail:4.5, q95_warn:2.0, stab_fail:0.35, stab_warn:0.25, sh_fail:0.40, sh_warn:0.25, rmse_warn:0.90, gsd_warn:8};
+const STAGES = [
+  {t:"Spatial Archive Search & Feasibility Filtering"},
+  {t:"Ingestion, Provenance & Calibration"},
+  {t:"Radiometric, Photometric, Spectral & Thermal Normalisation"},
+  {t:"Physical Geometry Backbone", s:"SPICE / DEM"},
+  {t:"GSD & PSF-Aware Resolution Matching"},
+  {t:"Multimodal Structural & Spectral Representation"},
+  {t:"Candidate Correspondence Generation", s:"SuperGlue / LightGlue / MINIMA / RIFT2"},
+  {t:"Robust Geometric Verification & Relief-Aware Deformation"},
+  {t:"Sub-Pixel Refinement"},
+  {t:"Uncertainty Quantification & Accept / Flag / Refuse"}
+];
+
+/* ====================== UTILS ====================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const fmt = (v,d=2) => Number(v).toFixed(d);
+const fmtInt = v => Math.round(v).toLocaleString("en-US");
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function cyrb53(str, seed=0){let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+  h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0);}
+const hash32 = s => cyrb53(s) % 4294967296;
+const hexHash = s => cyrb53(s).toString(16).padStart(14,"0") + cyrb53(s,7).toString(16).padStart(14,"0");
+function rngTools(seed){const r=mulberry32(seed>>>0);return{r,u:(a,b)=>a+(b-a)*r(),i:(a,b)=>Math.floor(a+(b-a+1)*r()),
+  g(){let u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}};}
+function mkCanvas(w,h){const c=document.createElement("canvas");c.width=Math.max(1,Math.round(w));c.height=Math.max(1,Math.round(h));return c;}
+function setupCanvas(cv,w,h){const dpr=Math.min(2,window.devicePixelRatio||1);cv.style.width=w+"px";cv.style.height=h+"px";cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);const x=cv.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);return x;}
+function fitContain(iw,ih,bw,bh){const s=Math.min(bw/iw,bh/ih);return{s,ox:(bw-iw*s)/2,oy:(bh-ih*s)/2,w:iw*s,h:ih*s};}
+function loadImage(src){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(im);im.onerror=rej;im.src=src;});}
+function readFile(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f);});}
+function percentile(sorted,p){if(!sorted.length)return 0;const i=(sorted.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);return sorted[lo]+(sorted[hi]-sorted[lo])*(i-lo);}
+const CMAP=[[0,[30,58,138]],[.2,[59,130,246]],[.4,[34,211,238]],[.6,[34,197,94]],[.8,[245,158,11]],[1,[239,68,68]]];
+function cmap(t){t=clamp(t,0,1);for(let i=1;i<CMAP.length;i++){if(t<=CMAP[i][0]){const [a,ca]=CMAP[i-1],[b,cb]=CMAP[i];const k=(t-a)/(b-a);return ca.map((v,j)=>Math.round(v+(cb[j]-v)*k));}}return CMAP[CMAP.length-1][1];}
+const confColor = (c,a=1) => c>=.8?`rgba(34,211,238,${a})`:c>=.6?`rgba(34,197,94,${a})`:`rgba(245,158,11,${a})`;
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2200);}
+function icons(){ if(window.lucide) lucide.createIcons({attrs:{"stroke-width":1.75}}); }
+
+/* ====================== IMAGE ANALYSIS ====================== */
+function integral(arr,w,h){const W1=w+1,I=new Float64Array(W1*(h+1));for(let y=0;y<h;y++){let row=0;for(let x=0;x<w;x++){row+=arr[y*w+x];I[(y+1)*W1+x+1]=I[y*W1+x+1]+row;}}return I;}
+function analyse(canvas){
+  const w=canvas.width,h=canvas.height,d=canvas.getContext("2d").getImageData(0,0,w,h).data;
+  const gray=new Float32Array(w*h),grad=new Float32Array(w*h);
+  for(let i=0,j=0;i<gray.length;i++,j+=4) gray[i]=(0.299*d[j]+0.587*d[j+1]+0.114*d[j+2])/255;
+  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=y*w+x;grad[i]=Math.hypot(gray[i+1]-gray[i-1],gray[i+w]-gray[i-w]);}
+  const Ig=integral(grad,w,h),Il=integral(gray,w,h),W1=w+1;
+  const mean=(I,x0,y0,x1,y1)=>{x0=clamp(Math.floor(x0),0,w);x1=clamp(Math.ceil(x1),0,w);y0=clamp(Math.floor(y0),0,h);y1=clamp(Math.ceil(y1),0,h);
+    const a=(x1-x0)*(y1-y0);if(a<=0)return 0;return(I[y1*W1+x1]-I[y0*W1+x1]-I[y1*W1+x0]+I[y0*W1+x0])/a;};
+  const A={w,h,gray,grad,G:(x0,y0,x1,y1)=>mean(Ig,x0,y0,x1,y1),L:(x0,y0,x1,y1)=>mean(Il,x0,y0,x1,y1)};
+  const cw=w/8,ch=h/8;A.cells=[];
+  for(let cy=0;cy<8;cy++)for(let cx=0;cx<8;cx++){const x0=cx*cw,y0=cy*ch;A.cells.push({i:cy*8+cx,cx,cy,g:A.G(x0,y0,x0+cw,y0+ch),l:A.L(x0,y0,x0+cw,y0+ch)});}
+  A.cells.forEach(c=>c.score=c.g*(0.35+c.l));
+  return A;
+}
+// Hash of the encoded file bytes (data URL) — renderer-independent, so seeds match across browsers/machines.
+function fingerprint(dataUrl){return hexHash(dataUrl).slice(0,16);}
+function toWorkCanvas(img,maxDim=960){const s=Math.min(1,maxDim/Math.max(img.naturalWidth,img.naturalHeight));const c=mkCanvas(img.naturalWidth*s,img.naturalHeight*s),x=c.getContext("2d");x.fillStyle="#000";x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);return c;}
+
+/* ====================== STATE ====================== */
+const S = { src:null, ref:null, srcSensor:"OHRC", refSensor:"NAC", scenario:"nominal", ctx:null, synthRef:null, result:null, running:false,
+  view:{k:1,ox:0,oy:0,split:.5,mode:"after",rim:false}, match:{links:220,out:true,pts:true}, heatOp:.62 };
+
+/* ====================== CONTEXT & TRANSFORM ====================== */
+function cfg(){return{src:S.src,ref:S.ref,srcSensor:S.srcSensor,refSensor:S.refSensor,scenario:S.scenario};}
+function buildContext(c){
+  const ss=SRC_SENSORS[c.srcSensor],rs=REF_SENSORS[c.refSensor],polar=c.scenario==="polar";
+  const seed=hash32([c.src.fp,c.ref?c.ref.fp:"SIMREF",c.srcSensor,c.refSensor,c.scenario].join("|"));
+  const R=rngTools(seed^0x1234abcd);
+  const W=c.src.canvas.width,H=c.src.canvas.height;
+  const refW=c.ref?c.ref.canvas.width:W,refH=c.ref?c.ref.canvas.height:H;
+  const gsdRatio=Math.max(ss.gsd,rs.gsd)/Math.min(ss.gsd,rs.gsd);
+  const lat=polar?-(84.1+R.u(0,2.6)):R.u(-11.5,9.5), lon=polar?R.u(18,62):R.u(-28,42);
+  const incSrc=polar?R.u(84.2,88.4):R.u(31,47), sunDelta=polar?R.u(36,46):R.u(3.5,11);
+  const incRef=polar?incSrc-sunDelta:incSrc+(R.r()<.5?-1:1)*sunDelta;
+  const theta=(polar?R.u(-7.5,7.5):R.u(-3.4,3.4))*Math.PI/180;
+  const s0=1+R.u(-.03,.03), sfit=Math.min(refW/W,refH/H);
+  const T={theta,s:s0*sfit,scx:W/2,scy:H/2,rcx:refW/2,rcy:refH/2,tx:R.u(-.035,.035)*refW,ty:R.u(-.035,.035)*refH};
+  const ranked=[...c.src.A.cells].sort((a,b)=>b.score-a.score);
+  const clusterCell=ranked[R.i(0,5)];
+  return{seed,seedHex:"0x"+seed.toString(16).padStart(8,"0").toUpperCase(),ss,rs,polar,gsdRatio,modality:`${ss.mod}↔${rs.mod}`,lat,lon,incSrc,incRef,sunDelta,
+    latBand:Math.abs(lat)>=60?"Polar":Math.abs(lat)>=30?"Mid-latitude":"Equatorial",targetGsd:Math.max(ss.gsd,rs.gsd),T,W,H,refW,refH,clusterCell};
+}
+function applyT(T,x,y){const c=Math.cos(T.theta),s=Math.sin(T.theta),dx=x-T.scx,dy=y-T.scy;return[T.rcx+T.tx+T.s*(c*dx-s*dy),T.rcy+T.ty+T.s*(s*dx+c*dy)];}
+function drawWarped(x,src,T){x.save();x.translate(T.rcx+T.tx,T.rcy+T.ty);x.rotate(T.theta);x.scale(T.s,T.s);x.translate(-T.scx,-T.scy);x.drawImage(src,0,0);x.restore();}
+
+function synthesizeRef(src,ctx){
+  const W=ctx.refW,H=ctx.refH,R=rngTools(ctx.seed^0x77aa11),c=mkCanvas(W,H),x=c.getContext("2d");
+  x.fillStyle="#000";x.fillRect(0,0,W,H);
+  const f=clamp(ctx.rs.gsd/ctx.ss.gsd,1.25,3.2),sm=mkCanvas(W/f,H/f),sx=sm.getContext("2d");
+  sx.fillStyle="#000";sx.fillRect(0,0,sm.width,sm.height);
+  sx.filter=ctx.polar?"brightness(0.8) contrast(1.6) blur(0.5px)":"brightness(1.1) contrast(0.9) blur(0.4px)";
+  sx.scale(1/f,1/f);drawWarped(sx,src.canvas,ctx.T);
+  x.imageSmoothingEnabled=true;x.drawImage(sm,0,0,W,H);
+  if(ctx.polar){
+    const cc=ctx.clusterCell,[px,py]=applyT(ctx.T,(cc.cx+.5)*ctx.W/8,(cc.cy+.5)*ctx.H/8);
+    const g=x.createRadialGradient(px,py,Math.min(W,H)*.16,px,py,Math.max(W,H)*.5);
+    g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(.5,"rgba(0,0,0,.6)");g.addColorStop(1,"rgba(0,0,0,.88)");x.fillStyle=g;x.fillRect(0,0,W,H);
+  }else{
+    const ang=R.u(0,Math.PI*2),g=x.createLinearGradient(W/2-Math.cos(ang)*W/2,H/2-Math.sin(ang)*H/2,W/2+Math.cos(ang)*W/2,H/2+Math.sin(ang)*H/2);
+    g.addColorStop(0,"rgba(0,0,0,.18)");g.addColorStop(1,"rgba(255,255,255,.03)");x.fillStyle=g;x.fillRect(0,0,W,H);
+  }
+  const id=x.getImageData(0,0,W,H),d=id.data;
+  for(let i=0;i<d.length;i+=4){const n=(R.r()+R.r()-1)*7;d[i]=clamp(d[i]+n,0,255);d[i+1]=clamp(d[i+1]+n,0,255);d[i+2]=clamp(d[i+2]+n,0,255);}
+  x.putImageData(id,0,0);
+  return c;
+}
+
+/* ====================== MOCK ENGINE ====================== */
+function convexHullArea(pts){
+  if(pts.length<3)return 0;const p=pts.map(q=>[q.x,q.y]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);const lo=[],up=[];
+  for(const q of p){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],q)<=0)lo.pop();lo.push(q);}
+  for(let i=p.length-1;i>=0;i--){const q=p[i];while(up.length>=2&&cr(up[up.length-2],up[up.length-1],q)<=0)up.pop();up.push(q);}
+  const h=lo.slice(0,-1).concat(up.slice(0,-1));let a=0;for(let i=0;i<h.length;i++){const j=(i+1)%h.length;a+=h[i][0]*h[j][1]-h[j][0]*h[i][1];}
+  return{area:Math.abs(a)/2,hull:h};
+}
+function runEngine(c,ctx,opts={}){
+  const A=c.src.A,W=A.w,H=A.h,R=rngTools(ctx.seed^0x9e3779b9),polar=ctx.polar,T=ctx.T;
+  const penalty=(ctx.ss.mod==="HS"?0.55:0)+Math.max(0,Math.log2(ctx.gsdRatio)-2)*0.12;
+  const occT=polar?R.u(.14,.27):clamp(R.u(.67,.9)-penalty*.08,.63,.9);
+  const nOcc=Math.max(3,Math.round(occT*64));
+  const Nt=polar?R.i(96,150):Math.round(R.u(640,1460)*(1-penalty*.3));
+  const ratioT=polar?R.u(.17,.28):R.u(.57,.79)*(1-penalty*.3);
+  const rmseT=polar?R.u(1.55,2.05):R.u(.42,.76)*(1+penalty*.9);
+  // occupied macro-cells
+  let order;
+  if(polar){const c0=ctx.clusterCell;order=A.cells.map(cl=>({i:cl.i,k:Math.hypot(cl.cx-c0.cx,cl.cy-c0.cy)+R.u(0,.9)})).sort((a,b)=>a.k-b.k);}
+  else order=A.cells.map(cl=>({i:cl.i,k:-cl.score*R.u(.75,1.25)})).sort((a,b)=>a.k-b.k);
+  const occSet=new Set(order.slice(0,nOcc).map(o=>o.i));
+  const ppc=Nt/nOcc,cw=W/8,ch=H/8,m=Math.max(2,Math.ceil(Math.sqrt(ppc*1.25*1.7)));
+  let inl=[],allScores=[];
+  for(const cl of A.cells){
+    const keep=occSet.has(cl.i)?Math.round(ppc*R.u(.8,1.2)):(polar?0:R.i(0,3));
+    if(!keep)continue;const cand=[];
+    for(let sy=0;sy<m;sy++)for(let sx=0;sx<m;sx++){
+      let best=null;
+      for(let p=0;p<4;p++){const x=cl.cx*cw+(sx+R.r())*cw/m,y=cl.cy*ch+(sy+R.r())*ch/m;if(x<8||y<8||x>W-8||y>H-8)continue;
+        const g=A.G(x-2,y-2,x+3,y+3)*(0.4+A.L(x-3,y-3,x+4,y+4));if(!best||g>best.g)best={x,y,g};}
+      if(best)cand.push(best);
+    }
+    cand.sort((a,b)=>b.g-a.g);cand.slice(0,keep).forEach(p=>{inl.push(p);allScores.push(p.g);});
+  }
+  allScores.sort((a,b)=>a-b);const g95=percentile(allScores,.95)||1;
+  // map to reference frame; drop out-of-bounds
+  inl=inl.map(p=>{const[rx,ry]=applyT(T,p.x,p.y);return{...p,tx:rx,ty:ry};}).filter(p=>p.tx>4&&p.ty>4&&p.tx<ctx.refW-4&&p.ty<ctx.refH-4);
+  // residuals (source px): smooth field + noise, rescaled to target RMSE
+  const f1=R.u(.6,1.6),f2=R.u(.6,1.6),p1=R.u(0,6.283),p2=R.u(0,6.283);
+  inl.forEach(p=>{const u=p.x/W,v=p.y/H;let rx=.55*Math.sin(6.283*u*f1+p1)*Math.cos(6.283*v*f2+p2)+.7*R.g(),ry=.55*Math.cos(6.283*u*f2+p2)*Math.sin(6.283*v*f1+p1)+.7*R.g();
+    if(polar&&R.r()<.12){rx*=2.2;ry*=2.2;}p.rx=rx;p.ry=ry;});
+  const ms=inl.reduce((s,p)=>s+p.rx*p.rx+p.ry*p.ry,0)/Math.max(1,inl.length),k=rmseT/Math.sqrt(ms||1);
+  inl.forEach(p=>{p.rx*=k;p.ry*=k;p.res=Math.hypot(p.rx,p.ry);p.rfx=p.tx+p.rx*T.s;p.rfy=p.ty+p.ry*T.s;
+    const tn=clamp(p.g/g95,0,1);p.conf=clamp(.52+.38*tn+.06*R.g()-.16*clamp(p.res/(rmseT*2),0,1.5)-(polar?.12:0)-penalty*.08,.3,.995);p.cls="inlier";});
+  // outliers
+  const nOut=Math.round(inl.length*(1/ratioT-1)),out=[];
+  for(let i=0;i<nOut;i++){const x=R.u(10,W-10),y=R.u(10,H-10),[tx,ty]=applyT(T,x,y),ang=R.u(0,6.283),d=R.u(18,190);
+    const rfx=clamp(tx+Math.cos(ang)*d,4,ctx.refW-4),rfy=clamp(ty+Math.sin(ang)*d,4,ctx.refH-4);
+    out.push({x,y,tx,ty,rfx,rfy,res:Math.hypot(rfx-tx,rfy-ty)/T.s,conf:R.u(.08,.45),cls:"outlier"});}
+  // metrics
+  const errs=inl.map(p=>p.res).sort((a,b)=>a-b);
+  const rmse=Math.sqrt(errs.reduce((s,e)=>s+e*e,0)/Math.max(1,errs.length));
+  const counts=new Array(64).fill(0);inl.forEach(p=>counts[clamp(Math.floor(p.y/ch),0,7)*8+clamp(Math.floor(p.x/cw),0,7)]++);
+  const occupancy=counts.filter(n=>n>=5).length/64;
+  const hullR=convexHullArea(inl),hull=inl.length>=3?hullR.area/(W*H):0;
+  const M={rmse_src:rmse,rmse_ref:rmse*ctx.ss.gsd/ctx.rs.gsd,median:percentile(errs,.5),q95:percentile(errs,.95),inliers:inl.length,candidates:inl.length+out.length,
+    ratio:inl.length/Math.max(1,inl.length+out.length),occupancy,hull,reproj:rmse*R.u(1.04,1.14)+.02,
+    stability:polar?R.u(.52,1.08):R.u(.05,.18)*(1+penalty),shadow:polar?R.u(.29,.37):R.u(.03,.14),rmse_pre:rmse*R.u(1.5,1.9)};
+  // gates
+  const st=(fail,warn)=>fail?"fail":warn?"warn":"pass";
+  const gates=[
+    {code:"R01",name:"Inlier support",val:fmtInt(M.inliers),rule:`≥ ${TH.inl_fail} (warn < ${TH.inl_warn})`,st:st(M.inliers<TH.inl_fail,M.inliers<TH.inl_warn),reason:"insufficient inlier support"},
+    {code:"R02",name:"Spatial coverage",val:`occ ${fmt(M.occupancy)} · hull ${fmt(M.hull)}`,rule:`occ ≥ ${TH.occ_fail} · hull ≥ ${TH.hull_fail}`,st:st(M.occupancy<TH.occ_fail||M.hull<TH.hull_fail,M.occupancy<TH.occ_warn),reason:"poor spatial coverage"},
+    {code:"R03",name:"Residual tail (Q95)",val:`${fmt(M.q95)} px`,rule:`≤ ${TH.q95_fail} px (warn > ${TH.q95_warn})`,st:st(M.q95>TH.q95_fail,M.q95>TH.q95_warn),reason:"residual tail exceeds tolerance"},
+    {code:"R04",name:"Perturbation stability",val:`Δ ${fmt(M.stability)} px`,rule:`≤ ${TH.stab_fail} px`,st:st(M.stability>TH.stab_fail,M.stability>TH.stab_warn),reason:"unstable under perturbation"},
+    {code:"R05",name:"Shadow / illumination",val:`${fmt(M.shadow*100,1)} %`,rule:`≤ ${TH.sh_fail*100} %`,st:st(M.shadow>TH.sh_fail,M.shadow>TH.sh_warn),reason:"excessive shadow fraction"},
+    {code:"F01",name:"Sensor modality",val:ctx.modality,rule:"PAN↔PAN nominal",st:st(false,ctx.ss.mod!==ctx.rs.mod),reason:`cross-modal ${ctx.modality} correspondence`},
+    {code:"F02",name:"GSD disparity",val:`${fmt(ctx.gsdRatio,1)}×`,rule:`≤ ${TH.gsd_warn}×`,st:st(false,ctx.gsdRatio>TH.gsd_warn),reason:`large GSD disparity (${fmt(ctx.gsdRatio,0)}×)`},
+    {code:"F03",name:"Registration RMSE",val:`${fmt(M.rmse_src,3)} px`,rule:`≤ ${TH.rmse_warn} src px`,st:st(false,M.rmse_src>TH.rmse_warn),reason:"elevated registration RMSE"}
+  ];
+  const fails=gates.filter(g=>g.st==="fail"),warns=gates.filter(g=>g.st==="warn");
+  let verdict,conf,reason;
+  if(fails.length){verdict="REJECTED";conf=R.u(14,29);reason=fails.map(g=>`${g.code} ${g.reason}`).join(", ");}
+  else if(warns.length){verdict="FLAGGED";conf=R.u(68,84);reason=warns.map(g=>`${g.code} ${g.reason}`).join(", ");}
+  else{verdict="ACCEPTED";conf=clamp(99-(M.rmse_src-.4)*9-(.9-M.occupancy)*10+R.u(-.6,.6),90,98.9);reason="A00 all acceptance gates nominal";}
+  const res={ctx,M,gates,verdict,conf,reason,inliers:inl,outliers:out,counts,hullPts:hullR.hull||[],
+    tel:{kp1:Math.round(R.u(9200,16800)*(polar?.42:1)*(1-penalty*.3)),kp2:Math.round(R.u(8000,14500)*(polar?.38:1)),archive:R.i(9,22),feasible:polar?1:R.i(2,5),
+      snr:R.u(38,46)*(polar?.72:1),kl:R.u(.02,.07)*(polar?4:1),dem:R.u(1.2,3.4),psf:.5+.65*Math.log2(ctx.gsdRatio)+R.u(0,.2),tps:Math.round(inl.length*.12),tpsMax:R.u(.6,2.1)*(polar?2.4:1),
+      split:[.36,.31,.2,.16].map(f=>Math.round((inl.length+out.length)*f*R.u(1.02,1.18))),durs:STAGES.map(()=>R.u(420,780))}};
+  if(!opts.light) res.heat=computeHeat(res,c);
+  return res;
+}
+function computeHeat(res,c){
+  const ctx=res.ctx,gw=56,gh=Math.max(8,Math.round(56*ctx.refH/ctx.refW)),grid=new Float32Array(gw*gh);
+  const RA=c.refA,step=Math.max(1,Math.floor(res.inliers.length/600)),pts=res.inliers.filter((_,i)=>i%step===0);
+  const rm=res.M.rmse_src,scale=ctx.refW/6;let mx=0;
+  for(let gy=0;gy<gh;gy++)for(let gx=0;gx<gw;gx++){
+    const x=(gx+.5)*ctx.refW/gw,y=(gy+.5)*ctx.refH/gh;let md=1e9,ws=0,wr=0;
+    for(const p of pts){const d2=(p.rfx-x)**2+(p.rfy-y)**2;if(d2<md)md=d2;const w=1/(d2+400);ws+=w;wr+=w*p.res;}
+    const lum=RA?RA.L(x-6,y-6,x+6,y+6):.3;
+    const u=.25*rm+.6*(ws?wr/ws:rm)+rm*1.3*clamp(Math.sqrt(md)/scale,0,2.4)+rm*.7*(1-clamp(lum/.3,0,1));
+    grid[gy*gw+gx]=u;if(u>mx)mx=u;
+  }
+  return{gw,gh,grid,max:mx};
+}
+
+/* ====================== TELEMETRY ====================== */
+function buildTelemetry(res){
+  const c=res.ctx,M=res.M,t=res.tel,sp=c.polar,f=fmt;
+  const srcId=S.src.productId,refId=S.ref?S.ref.productId:"SIM-REF (derived)";
+  return [
+    [["inf",`Footprint query ${f(Math.abs(c.lat),2)}°${c.lat<0?"S":"N"} ${f(c.lon,2)}°E · PDS/ODE archive index`],["inf",`${t.archive} ${c.rs.name} products intersect footprint; ${t.feasible} pass feasibility (overlap ≥ 40 %, Δsun ≤ 15°)`],
+      sp?["warn",`Δsun ${f(c.sunDelta,1)}° exceeds nominal envelope — continuing under low-sun profile`]:["ok",`Selected ${refId} · Δsun ${f(c.sunDelta,1)}°`]],
+    [["inf",`Ingest ${srcId} (${S.src.origW}×${S.src.origH} px, uint8 → float32)`],["inf",`Provenance record opened · fingerprint ${S.src.fp.slice(0,12)}`],["ok",`Dark/flat-field calibration applied · SNR est. ${f(t.snr,1)} dB`]],
+    [["inf",`Hapke photometric normalisation · i=${f(c.incSrc,1)}° / ${f(c.incRef,1)}°`],c.ss.mod==="HS"?["inf","IIRS 0.8–5.0 µm → thermal-emission removal, PAN-equivalent synthesis"]:["inf",`Histogram match to reference · KL ${f(t.kl,3)}`],
+      sp?["warn",`Shadow fraction ${f(M.shadow*100,1)} % masked (low-sun / PSR-adjacent terrain)`]:["ok",`Shadow fraction ${f(M.shadow*100,1)} % masked`]],
+    [["inf","SPICE kernels: LSK naif0012.tls · PCK moon_pa_de440_200625.bpc · CH-2 SPK/CK"],["ok",`DEM SLDEM2015 · orthorectification residual ${f(t.dem,2)} m`]],
+    [["inf",`GSD ratio ${f(c.gsdRatio,1)}× · PSF kernel σ=${f(t.psf,2)} px`],["ok",`Resampled to ${c.targetGsd} m GSD common grid`]],
+    [["inf","Phase-congruency structure maps + learned dense descriptors"],["ok",`${fmtInt(t.kp1)} / ${fmtInt(t.kp2)} keypoints (source / reference)`]],
+    [["inf",`SuperGlue ${fmtInt(t.split[0])} · LightGlue ${fmtInt(t.split[1])} · MINIMA ${fmtInt(t.split[2])} · RIFT2 ${fmtInt(t.split[3])}`],["ok",`${fmtInt(M.candidates)} candidates generated after mutual-NN fusion`]],
+    [[M.ratio<.4?"warn":"inf",`MAGSAC++ verification: ${fmtInt(M.inliers)} inliers / ${fmtInt(M.candidates)} (${f(M.ratio*100,1)} %)`],["inf",`Relief-aware TPS deformation · ${t.tps} control points · max Δ ${f(t.tpsMax,2)} px`]],
+    [["inf","Sub-pixel refinement · phase correlation, 31×31 patches"],["ok",`RMSE ${f(M.rmse_pre,3)} → ${f(M.rmse_src,3)} src px`]],
+    [["inf",`Grid occupancy ${f(M.occupancy,2)} · hull ${f(M.hull,2)} · Q95 ${f(M.q95,2)} px`],[M.stability>TH.stab_fail?"err":"inf",`Perturbation test (n=16): Δ ${f(M.stability,3)} px`],
+      [res.verdict==="ACCEPTED"?"ok":res.verdict==="FLAGGED"?"warn":"err",`DECISION: ${res.verdict} · conf ${f(res.conf,1)} % · ${res.reason}`]]
+  ];
+}
+
+/* ====================== SETUP UI ====================== */
+async function setSource(dataUrl,name,isSample){
+  const img=await loadImage(dataUrl),cv=toWorkCanvas(img);
+  S.src={canvas:cv,A:analyse(cv),fp:fingerprint(dataUrl),origW:img.naturalWidth,origH:img.naturalHeight,name,
+    productId:isSample?"ch2_ohr_ncp_20260103T1005176450_d_img_d18":name.replace(/\.[^.]+$/,""),isSample};
+  $("#thumb-src").src=dataUrl;
+  if(isSample) $("#horizon").style.backgroundImage=`url(${dataUrl})`;
+  refreshSetup();
+}
+async function setReference(dataUrl,name){
+  if(!dataUrl){S.ref=null;refreshSetup();return;}
+  const img=await loadImage(dataUrl),cv=toWorkCanvas(img);
+  S.ref={canvas:cv,fp:fingerprint(dataUrl),origW:img.naturalWidth,origH:img.naturalHeight,name,productId:name.replace(/\.[^.]+$/,"")};
+  $("#thumb-ref").src=dataUrl;refreshSetup();
+}
+function refreshSetup(){
+  if(!S.src)return;
+  const ctx=S.ctx=buildContext(cfg());
+  if(!S.ref){S.synthRef=synthesizeRef(S.src,ctx);$("#thumb-ref").src=S.synthRef.toDataURL("image/jpeg",.85);}
+  $("#ref-simtag").style.display=S.ref?"none":"";
+  const m=(k,v)=>`<dt>${k}</dt><dd title="${v}">${v}</dd>`;
+  $("#meta-src").innerHTML=m("PRODUCT",S.src.productId)+m("DIMENSIONS",`${S.src.origW} × ${S.src.origH} px`)+m("GSD",`${ctx.ss.gsd} m/px · ${ctx.ss.inst}`)+m("FINGERPRINT",S.src.fp);
+  $("#meta-ref").innerHTML=(S.ref?m("PRODUCT",S.ref.productId)+m("DIMENSIONS",`${S.ref.origW} × ${S.ref.origH} px`)
+    :m("PRODUCT",`SIM-REF · ${ctx.rs.name} geometry`)+m("DIMENSIONS",`${ctx.refW} × ${ctx.refH} px (synthesised)`))
+    +m("GSD",`${ctx.rs.gsd} m/px · ${ctx.rs.inst}`)+m("SOURCE","");
+  $("#meta-ref dd:last-child").innerHTML=S.ref?`uploaded · <button class="linkbtn" id="ref-reset">revert to simulated</button>`:"derived from source (warp + PSF + photometry)";
+  const rr=$("#ref-reset");if(rr)rr.onclick=e=>{e.preventDefault();$("#file-ref").value="";setReference(null);};
+  const chip=(ic,k,v,warn)=>`<div class="chip${warn?" warn":""}"><div class="k"><i data-lucide="${ic}"></i>${k}</div><div class="v">${v}</div></div>`;
+  const finer=ctx.ss.gsd<ctx.rs.gsd?"source finer":ctx.ss.gsd>ctx.rs.gsd?"reference finer":"equal";
+  $("#chips").innerHTML=chip("scan-line","GSD ratio",`${fmt(ctx.gsdRatio,1)}× <small>${finer}</small>`,ctx.gsdRatio>TH.gsd_warn)
+    +chip("layers","Modality",ctx.modality,ctx.ss.mod!==ctx.rs.mod)
+    +chip("globe","Latitude band",`${ctx.latBand} <small>${fmt(Math.abs(ctx.lat),1)}°${ctx.lat<0?"S":"N"}</small>`,ctx.polar)
+    +chip("sun","Sun-angle Δ",`${fmt(ctx.sunDelta,1)}° <small>i ${fmt(ctx.incSrc,0)}°/${fmt(ctx.incRef,0)}°</small>`,ctx.sunDelta>15)
+    +chip("crosshair","Common grid",`${ctx.targetGsd} m <small>GSD</small>`)
+    +chip("fingerprint","Initial misfit",`${fmt(Math.abs(ctx.T.theta*180/Math.PI),1)}° <small>${fmt(Math.hypot(ctx.T.tx,ctx.T.ty),0)} px shift</small>`);
+  $("#seed-tag").textContent="seed "+ctx.seedHex;
+  $("#scen-desc").textContent=ctx.polar?"South-polar pair, incidence > 84° vs reference ~45°: long shadows, sparse lit texture. Pipeline is expected to refuse registration rather than emit an unreliable product."
+    :"Equatorial pair under comparable illumination. Full 10-stage pipeline with acceptance gating on coverage, residual tail and perturbation stability.";
+  icons();
+}
+function bindDrop(zoneSel,inputSel,cb){
+  const z=$(zoneSel),inp=$(inputSel);
+  inp.onchange=async()=>{const f=inp.files[0];if(f)cb(await readFile(f),f.name);};
+  z.addEventListener("dragover",e=>{e.preventDefault();z.classList.add("over");});
+  z.addEventListener("dragleave",()=>z.classList.remove("over"));
+  z.addEventListener("drop",async e=>{e.preventDefault();z.classList.remove("over");const f=e.dataTransfer.files[0];if(f&&f.type.startsWith("image/"))cb(await readFile(f),f.name);});
+}
+
+/* ====================== NAVIGATION ====================== */
+const ORDER=["setup","pipeline","results","export"];
+let current="setup";
+function unlock(n){ORDER.forEach((s,i)=>{const b=$(`.step[data-sec="${s}"]`);b.disabled=i>n;});}
+function show(sec){
+  if(sec===current)return;const from=$("#sec-"+current),to=$("#sec-"+sec);
+  from.classList.remove("visible");
+  setTimeout(()=>{from.classList.remove("shown");to.classList.add("shown");window.scrollTo({top:0,behavior:"smooth"});
+    setTimeout(()=>{to.classList.add("visible");if(sec==="results")renderResults();if(sec==="export")renderExport();},30);},260);
+  current=sec;
+  $$(".step").forEach(b=>{const i=ORDER.indexOf(b.dataset.sec);b.classList.toggle("active",b.dataset.sec===sec);b.classList.toggle("done",i<ORDER.indexOf(sec));});
+}
+
+/* ====================== PIPELINE ====================== */
+function buildStages(){
+  $("#stages").innerHTML=STAGES.map((s,i)=>`<div class="stage" id="st-${i}"><div class="ring"><svg viewBox="0 0 52 52"><circle class="track" cx="26" cy="26" r="24"/><circle class="prog" cx="26" cy="26" r="24"/></svg><span class="num">${String(i+1).padStart(2,"0")}</span></div>
+    <div><div class="st-title">${s.t}</div>${s.s?`<div class="st-sub">${s.s}</div>`:""}<div class="st-meta">PENDING</div></div></div>`).join("");
+}
+function liveRows(v={}){
+  const r=(k,x)=>`<div class="row"><span>${k}</span><b>${x??"—"}</b></div>`;
+  $("#live").innerHTML=r("Keypoints src / ref",v.kp)+r("Candidates",v.cand)+r("Verified inliers",v.inl)+r("Inlier ratio",v.ratio)+r("RMSE (src px)",v.rmse)+r("Grid occupancy",v.occ)+
+    `<div class="row"><span>Decision</span><b style="color:${v.dc||"inherit"}">${v.dec??"—"}</b></div>`;
+}
+function logLine(cls,msg,t){
+  const L=$("#log"),cur=L.querySelector(".cursor-ln");if(cur)cur.remove();
+  const d=document.createElement("div");d.className="ln";
+  d.innerHTML=`<span class="t">T+${(t/1000).toFixed(3).padStart(6,"0")}</span> <span class="s">${msg.stage}</span> <span class="${cls}">${msg.text}</span>`;
+  L.appendChild(d);const c=document.createElement("div");c.className="ln cursor-ln";c.innerHTML='<span class="cursor"></span>';L.appendChild(c);L.scrollTop=L.scrollHeight;
+}
+async function runPipeline(){
+  if(S.running||!S.src)return;S.running=true;$("#run-btn").disabled=true;
+  const c=cfg(),ctx=buildContext(c);S.ctx=ctx;
+  S.refCanvas=S.ref?S.ref.canvas:synthesizeRef(S.src,ctx);
+  c.refA=analyse(S.refCanvas);
+  const res=runEngine(c,ctx);S.result=res;
+  prepareProducts();
+  unlock(1);show("pipeline");buildStages();liveRows();$("#log").innerHTML="";$("#pbar").style.width="0";$("#btn-view").disabled=true;
+  $("#pipe-pair").textContent=`${ctx.ss.name} → ${ctx.rs.name} · ${ctx.polar?"polar low-sun":"nominal"} · seed ${ctx.seedHex}`;
+  const tel=buildTelemetry(res);await sleep(450);
+  const t0=performance.now(),tick=setInterval(()=>$("#pipe-elapsed").textContent=`T+${((performance.now()-t0)/1000).toFixed(3).padStart(6,"0")} s`,47);
+  const M=res.M,stageState=i=>{if(ctx.polar&&i===0)return"warn";if(i===7&&M.ratio<.4)return"warn";if(i===9)return res.verdict==="ACCEPTED"?"done":res.verdict==="FLAGGED"?"warn":"fail";return"done";};
+  for(let i=0;i<STAGES.length;i++){
+    const el=$("#st-"+i),d=res.tel.durs[i]/(S.fast?6:1),prog=el.querySelector(".prog");
+    el.classList.add("running");el.querySelector(".st-meta").textContent="RUNNING…";
+    $("#pipe-status").innerHTML=`STAGE <b>${String(i+1).padStart(2,"0")}/10</b> · ${STAGES[i].t.toUpperCase()}`;
+    prog.style.transition=`stroke-dashoffset ${d}ms linear`;requestAnimationFrame(()=>prog.style.strokeDashoffset="0");
+    const lines=tel[i];
+    for(const [cls,text] of lines){await sleep(d/(lines.length+1));logLine(cls,{stage:`[stage ${i+1}]`,text},performance.now()-t0);}
+    await sleep(d/(lines.length+1));
+    const stt=stageState(i);el.classList.remove("running");el.classList.add(stt);
+    el.querySelector(".st-meta").textContent=`${stt==="fail"?"REFUSE":stt==="warn"?"WARN":"DONE"} · ${(d/1000).toFixed(2)} s`;
+    $("#pbar").style.width=`${(i+1)*10}%`;
+    const v=liveRows._v||(liveRows._v={});
+    if(i===5)v.kp=`${fmtInt(res.tel.kp1)} / ${fmtInt(res.tel.kp2)}`;
+    if(i===6)v.cand=fmtInt(M.candidates);
+    if(i===7){v.inl=fmtInt(M.inliers);v.ratio=fmt(M.ratio*100,1)+" %";}
+    if(i===8)v.rmse=fmt(M.rmse_src,3);
+    if(i===9){v.occ=fmt(M.occupancy,2);v.dec=res.verdict;v.dc=res.verdict==="ACCEPTED"?"var(--green)":res.verdict==="FLAGGED"?"var(--amber)":"var(--red)";}
+    liveRows(v);
+  }
+  liveRows._v=null;clearInterval(tick);
+  $("#pipe-status").innerHTML=`PIPELINE COMPLETE · DECISION <b style="color:${res.verdict==="ACCEPTED"?"var(--green)":res.verdict==="FLAGGED"?"var(--amber)":"var(--red)"}">${res.verdict}</b>`;
+  unlock(3);$("#btn-view").disabled=false;S.running=false;$("#run-btn").disabled=false;
+  S.autoTimer=setTimeout(()=>{if(current!=="pipeline")return;show("results");if(S.gotoExport)setTimeout(()=>show("export"),900);},S.fast?300:1600);
+}
+
+/* ====================== PRODUCTS ====================== */
+function edgeLayer(canvas,maskT){
+  const A=analyse(canvas),w=A.w,h=A.h,sample=[];for(let i=0;i<A.grad.length;i+=37)sample.push(A.grad[i]);sample.sort((a,b)=>a-b);
+  const thr=percentile(sample,.9)||.05,out=mkCanvas(w,h),x=out.getContext("2d"),id=x.createImageData(w,h),d=id.data;
+  let mask=null;if(maskT){const mc=mkCanvas(w,h),mx=mc.getContext("2d");mx.save();mx.translate(maskT.rcx+maskT.tx,maskT.rcy+maskT.ty);mx.rotate(maskT.theta);mx.scale(maskT.s,maskT.s);mx.translate(-maskT.scx,-maskT.scy);
+    mx.fillStyle="#fff";mx.fillRect(4,4,maskT.scx*2-8,maskT.scy*2-8);mx.restore();mask=mx.getImageData(0,0,w,h).data;}
+  for(let i=0;i<A.grad.length;i++){const g=A.grad[i];if(g>thr&&(!mask||mask[i*4+3]>200)){const a=clamp((g-thr)/thr*1.4,0,1)*230;d[i*4]=34;d[i*4+1]=211;d[i*4+2]=238;d[i*4+3]=a;}}
+  x.putImageData(id,0,0);return out;
+}
+function prepareProducts(){
+  const ctx=S.ctx,W=ctx.refW,H=ctx.refH;
+  S.warp=mkCanvas(W,H);const wx=S.warp.getContext("2d");wx.fillStyle="#000";wx.fillRect(0,0,W,H);drawWarped(wx,S.src.canvas,ctx.T);
+  S.raw=mkCanvas(W,H);const rx=S.raw.getContext("2d");rx.fillStyle="#000";rx.fillRect(0,0,W,H);const f=fitContain(ctx.W,ctx.H,W,H);rx.drawImage(S.src.canvas,f.ox,f.oy,f.w,f.h);
+  S.edgeWarp=edgeLayer(S.warp,ctx.T);
+  S.edgeRaw=edgeLayer(S.raw,{theta:0,s:f.s,scx:ctx.W/2,scy:ctx.H/2,rcx:W/2,rcy:H/2,tx:0,ty:0});
+  const h=S.result.heat,hc=mkCanvas(h.gw,h.gh),hx=hc.getContext("2d"),id=hx.createImageData(h.gw,h.gh);
+  for(let i=0;i<h.grid.length;i++){const[r,g,b]=cmap(h.grid[i]/h.max);id.data.set([r,g,b,255],i*4);}hx.putImageData(id,0,0);S.heatCanvas=hc;
+  S.view={k:0,ox:0,oy:0,split:.5,mode:"after",rim:false};
+}
+
+/* ====================== RESULTS ====================== */
+function countUp(el,to,dec,suffix=""){
+  if(S.still){el.innerHTML=(dec<0?fmtInt(to):fmt(to,dec))+suffix;return;}
+  const t0=performance.now(),dur=1300;
+  const step=now=>{const p=clamp((now-t0)/dur,0,1),e=1-Math.pow(1-p,3),v=to*e;el.innerHTML=(dec<0?fmtInt(v):fmt(v,dec))+suffix;if(p<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
+function renderResults(){
+  const res=S.result;if(!res)return;const M=res.M,ctx=res.ctx;
+  const vc={ACCEPTED:["#22C55E","rgba(34,197,94,.18)","circle-check"],FLAGGED:["#F59E0B","rgba(245,158,11,.16)","triangle-alert"],REJECTED:["#EF4444","rgba(239,68,68,.2)","octagon-x"]}[res.verdict];
+  const V=$("#verdict");V.style.setProperty("--vc",vc[0]);V.style.setProperty("--vglow",vc[1]);
+  $("#res-sub").textContent=`${S.src.productId} → ${S.ref?S.ref.productId:"SIM-REF"} · seed ${ctx.seedHex}`;
+  V.innerHTML=`<div class="vbadge"><i data-lucide="${vc[2]}"></i><span class="w">${res.verdict}</span></div>
+    <div class="vmid"><div class="vconf"><b id="v-conf">0.0</b><span>% registration confidence</span></div>
+    <div class="vreason">${res.verdict} — ${res.reason}</div>
+    <div class="vpair">${ctx.ss.name} (${ctx.ss.gsd} m) → ${ctx.rs.name} (${ctx.rs.gsd} m) · ${ctx.modality} · ${ctx.latBand} ${fmt(Math.abs(ctx.lat),1)}°${ctx.lat<0?"S":"N"} · Δsun ${fmt(ctx.sunDelta,1)}°</div></div>
+    <div class="gates">${res.gates.map(g=>`<div class="gate" title="${g.rule}"><span class="c">${g.code}</span><span class="nm">${g.name} · <span class="mono" style="color:var(--dim)">${g.val}</span></span><span class="st ${g.st}">${g.st.toUpperCase()}</span></div>`).join("")}</div>`;
+  countUp($("#v-conf"),res.conf,1);
+  const gs=code=>res.gates.find(g=>g.code===code).st;
+  const cards=[
+    ["RMSE (source px)",M.rmse_src,3,"px",`${fmt(M.rmse_src*ctx.ss.gsd,2)} m ground`,gs("F03")],
+    ["RMSE (reference px)",M.rmse_ref,3,"px",`@ ${ctx.rs.gsd} m ${ctx.rs.name}`,gs("F03")],
+    ["Median error",M.median,3,"px","source px, inliers",""],
+    ["95th percentile",M.q95,3,"px",`limit ${TH.q95_fail} px`,gs("R03")],
+    ["Inlier count",M.inliers,-1,"",`of ${fmtInt(M.candidates)} candidates`,gs("R01")],
+    ["Inlier ratio",M.ratio*100,1,"%","MAGSAC++ consensus",M.ratio<.4?"warn":""],
+    ["Grid occupancy",M.occupancy,2,"",`8×8 · ${Math.round(M.occupancy*64)}/64 cells`,gs("R02")],
+    ["Convex-hull coverage",M.hull*100,1,"%",`limit ${TH.hull_fail*100} %`,gs("R02")],
+    ["Reprojection error",M.reproj,3,"px","DEM-aware, src px",gs("F03")]
+  ];
+  $("#metrics").innerHTML=cards.map((c,i)=>`<div class="card metric"><div class="k"><i class="d ${c[5]==="pass"?"":c[5]}"></i>${c[0]}</div><div class="v"><span id="mv-${i}">0</span><small>${c[3]}</small></div><div class="h">${c[4]}</div></div>`).join("");
+  cards.forEach((c,i)=>countUp($("#mv-"+i),c[1],c[2]));
+  renderOcc();drawAll();icons();
+}
+function drawAll(){ if(current!=="results"||!S.result)return; drawViewer();drawHeat();drawMatches();drawResid();renderBench(); }
+
+// ---- registered product viewer
+function drawViewer(){
+  const cv=$("#cv-viewer"),box=cv.parentElement,W=box.clientWidth,H=Math.round(clamp(W*.62,300,560)),x=setupCanvas(cv,W,H),ctx=S.ctx,v=S.view;
+  if(!v.k||v.cw!==W){const f=fitContain(ctx.refW,ctx.refH,W,H);v.k=f.s;v.ox=f.ox;v.oy=f.oy;v.fit=f.s;v.cw=W;}
+  x.fillStyle="#000";x.fillRect(0,0,W,H);
+  const sx=W*v.split,moving=v.mode==="after"?S.warp:S.raw,edge=v.mode==="after"?S.edgeWarp:S.edgeRaw;
+  x.save();x.translate(v.ox,v.oy);x.scale(v.k,v.k);x.imageSmoothingEnabled=v.k<2.5;x.drawImage(S.refCanvas,0,0);x.restore();
+  x.save();x.beginPath();x.rect(sx,0,W-sx,H);x.clip();x.translate(v.ox,v.oy);x.scale(v.k,v.k);x.imageSmoothingEnabled=v.k<2.5;x.drawImage(moving,0,0);x.restore();
+  if(v.rim){x.save();x.translate(v.ox,v.oy);x.scale(v.k,v.k);x.globalAlpha=.85;x.drawImage(edge,0,0);x.restore();}
+  x.strokeStyle="rgba(34,211,238,.9)";x.lineWidth=1.5;x.shadowColor="#22D3EE";x.shadowBlur=10;x.beginPath();x.moveTo(sx,0);x.lineTo(sx,H);x.stroke();x.shadowBlur=0;
+  x.fillStyle="rgba(5,7,15,.85)";x.beginPath();x.arc(sx,H/2,15,0,7);x.fill();x.stroke();
+  x.fillStyle="#22D3EE";x.beginPath();x.moveTo(sx-9,H/2);x.lineTo(sx-4,H/2-5);x.lineTo(sx-4,H/2+5);x.fill();x.beginPath();x.moveTo(sx+9,H/2);x.lineTo(sx+4,H/2-5);x.lineTo(sx+4,H/2+5);x.fill();
+  const lab=(t,xx,al)=>{x.font="600 11px 'JetBrains Mono',monospace";const w=x.measureText(t).width+14;const px=al==="r"?xx-w-10:xx+10;x.fillStyle="rgba(5,7,15,.78)";x.fillRect(px,10,w,22);x.strokeStyle="rgba(34,211,238,.4)";x.lineWidth=1;x.strokeRect(px+.5,10.5,w-1,21);x.fillStyle="#C9D1D9";x.fillText(t,px+7,25);};
+  lab(`REFERENCE · ${ctx.rs.name}`,sx,"r");lab(v.mode==="after"?`SOURCE WARPED · ${ctx.ss.name}`:`SOURCE UNREGISTERED · ${ctx.ss.name}`,sx,"l");
+  $("#vw-info").textContent=`zoom ${fmt(v.k/v.fit,1)}× · ${v.mode==="after"?"post-registration":"pre-registration"}`;
+}
+function bindViewer(){
+  const cv=$("#cv-viewer");let drag=null;
+  cv.addEventListener("pointerdown",e=>{const r=cv.getBoundingClientRect(),mx=e.clientX-r.left,sx=r.width*S.view.split;drag={mode:Math.abs(mx-sx)<18?"split":"pan",lx:e.clientX,ly:e.clientY};cv.setPointerCapture(e.pointerId);cv.style.cursor=drag.mode==="split"?"ew-resize":"grabbing";});
+  cv.addEventListener("pointermove",e=>{const r=cv.getBoundingClientRect();if(!drag){cv.style.cursor=Math.abs(e.clientX-r.left-r.width*S.view.split)<18?"ew-resize":"grab";return;}
+    if(drag.mode==="split")S.view.split=clamp((e.clientX-r.left)/r.width,.02,.98);else{S.view.ox+=e.clientX-drag.lx;S.view.oy+=e.clientY-drag.ly;}drag.lx=e.clientX;drag.ly=e.clientY;drawViewer();});
+  const end=()=>{drag=null;cv.style.cursor="grab";};cv.addEventListener("pointerup",end);cv.addEventListener("pointercancel",end);
+  cv.addEventListener("wheel",e=>{e.preventDefault();const r=cv.getBoundingClientRect();zoomAt(e.clientX-r.left,e.clientY-r.top,e.deltaY<0?1.18:1/1.18);},{passive:false});
+  const zoomAt=(mx,my,f)=>{const v=S.view,nk=clamp(v.k*f,v.fit*.8,v.fit*12);f=nk/v.k;v.ox=mx-(mx-v.ox)*f;v.oy=my-(my-v.oy)*f;v.k=nk;drawViewer();};
+  $("#vw-zin").onclick=()=>{const r=cv.getBoundingClientRect();zoomAt(r.width/2,r.height/2,1.5);};
+  $("#vw-zout").onclick=()=>{const r=cv.getBoundingClientRect();zoomAt(r.width/2,r.height/2,1/1.5);};
+  $("#vw-reset").onclick=()=>{S.view.k=0;drawViewer();};
+  $("#vw-after").onclick=()=>{S.view.mode="after";$("#vw-after").classList.add("on");$("#vw-before").classList.remove("on");drawViewer();};
+  $("#vw-before").onclick=()=>{S.view.mode="before";$("#vw-before").classList.add("on");$("#vw-after").classList.remove("on");drawViewer();};
+  $("#vw-rim").onclick=()=>{S.view.rim=!S.view.rim;$("#vw-rim").classList.toggle("on",S.view.rim);drawViewer();};
+}
+
+// ---- uncertainty heatmap
+function drawHeat(){
+  const cv=$("#cv-heat"),W=cv.parentElement.clientWidth,ctx=S.ctx,H=Math.round(clamp(W*ctx.refH/ctx.refW,280,$("#cv-viewer").clientHeight||500)),x=setupCanvas(cv,W,H),f=fitContain(ctx.refW,ctx.refH,W,H);
+  x.fillStyle="#000";x.fillRect(0,0,W,H);x.drawImage(S.refCanvas,f.ox,f.oy,f.w,f.h);
+  x.globalAlpha=S.heatOp;x.imageSmoothingEnabled=true;x.imageSmoothingQuality="high";x.drawImage(S.heatCanvas,f.ox,f.oy,f.w,f.h);x.globalAlpha=1;
+  x.fillStyle="rgba(255,255,255,.55)";const st=Math.max(1,Math.floor(S.result.inliers.length/400));S.result.inliers.forEach((p,i)=>{if(i%st)return;x.fillRect(f.ox+p.rfx*f.s-.6,f.oy+p.rfy*f.s-.6,1.2,1.2);});
+  $("#heat-lo").textContent="0.0";$("#heat-hi").textContent=fmt(S.result.heat.max,2);
+}
+
+// ---- match visualisation
+function drawMatches(){
+  const cv=$("#cv-match"),W=cv.parentElement.clientWidth,ctx=S.ctx,res=S.result,gap=36,pw=(W-gap)/2,H=Math.round(clamp(pw*Math.max(ctx.H/ctx.W,ctx.refH/ctx.refW),300,560))+30;
+  const x=setupCanvas(cv,W,H),fs=fitContain(ctx.W,ctx.H,pw,H-30),fr=fitContain(ctx.refW,ctx.refH,pw,H-30),ox2=pw+gap;
+  x.fillStyle="#02040a";x.fillRect(0,0,W,H);
+  x.drawImage(S.src.canvas,fs.ox,30+fs.oy,fs.w,fs.h);x.drawImage(S.refCanvas,ox2+fr.ox,30+fr.oy,fr.w,fr.h);
+  x.font="600 11px 'JetBrains Mono',monospace";x.fillStyle="#7D8793";x.fillText(`SOURCE · ${ctx.ss.name} · ${S.src.productId.slice(0,34)}`,fs.ox,18);x.fillText(`REFERENCE · ${ctx.rs.name}`,ox2+fr.ox,18);
+  const P=(p)=>[fs.ox+p.x*fs.s,30+fs.oy+p.y*fs.s],Q=(p)=>[ox2+fr.ox+p.rfx*fr.s,30+fr.oy+p.rfy*fr.s];
+  if(S.match.out){x.lineWidth=.7;res.outliers.forEach((p,i)=>{if(i%2)return;const[a,b]=P(p),[c,d]=Q(p);x.strokeStyle="rgba(239,68,68,.16)";x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke();});}
+  const n=Math.min(S.match.links,res.inliers.length),step=res.inliers.length/n;
+  x.globalCompositeOperation="lighter";x.lineWidth=.8;
+  for(let k=0;k<n;k++){const p=res.inliers[Math.floor(k*step)],[a,b]=P(p),[c,d]=Q(p);x.strokeStyle=confColor(p.conf,.42);x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke();}
+  x.globalCompositeOperation="source-over";
+  const dot=(xx,yy,col,r)=>{x.fillStyle=col;x.beginPath();x.arc(xx,yy,r,0,7);x.fill();};
+  if(S.match.out)res.outliers.forEach(p=>{const[a,b]=P(p),[c,d]=Q(p);dot(a,b,"rgba(239,68,68,.5)",1.5);dot(c,d,"rgba(239,68,68,.5)",1.5);});
+  res.inliers.forEach((p,i)=>{if(!S.match.pts&&(i%Math.max(1,Math.floor(step))))return;const[a,b]=P(p),[c,d]=Q(p);dot(a,b,confColor(p.conf,.95),1.7);dot(c,d,confColor(p.conf,.95),1.7);});
+  $("#m-info").textContent=`${fmtInt(n)} of ${fmtInt(res.inliers.length)} inlier links drawn · ${fmtInt(res.outliers.length)} outliers rejected`;
+}
+
+// ---- residual vectors
+function drawResid(){
+  const cv=$("#cv-resid"),W=cv.parentElement.clientWidth,ctx=S.ctx,res=S.result,H=Math.round(clamp(W*ctx.refH/ctx.refW,260,380)),x=setupCanvas(cv,W,H),f=fitContain(ctx.refW,ctx.refH,W,H);
+  x.fillStyle="#000";x.fillRect(0,0,W,H);x.globalAlpha=.42;x.drawImage(S.refCanvas,f.ox,f.oy,f.w,f.h);x.globalAlpha=1;
+  const nice=[5,10,20,25,50,100],raw=16/(Math.max(.05,res.M.median)*ctx.T.s*f.s),sc=nice.reduce((a,b)=>Math.abs(b-raw)<Math.abs(a-raw)?b:a);
+  $("#res-scale").textContent=`arrows ×${sc}`;
+  const st=Math.max(1,Math.floor(res.inliers.length/260));
+  res.inliers.forEach((p,i)=>{if(i%st)return;const x0=f.ox+p.rfx*f.s,y0=f.oy+p.rfy*f.s,dx=p.rx*ctx.T.s*f.s*sc,dy=p.ry*ctx.T.s*f.s*sc,[r,g,b]=cmap(p.res/(res.M.q95*1.2));
+    x.strokeStyle=x.fillStyle=`rgb(${r},${g},${b})`;x.lineWidth=1.1;x.beginPath();x.moveTo(x0,y0);x.lineTo(x0+dx,y0+dy);x.stroke();
+    const a=Math.atan2(dy,dx),L=Math.min(5,Math.hypot(dx,dy)*.45);x.beginPath();x.moveTo(x0+dx,y0+dy);x.lineTo(x0+dx-L*Math.cos(a-.45),y0+dy-L*Math.sin(a-.45));x.lineTo(x0+dx-L*Math.cos(a+.45),y0+dy-L*Math.sin(a+.45));x.fill();});
+  x.font="10.5px 'JetBrains Mono',monospace";x.fillStyle="rgba(5,7,15,.8)";x.fillRect(8,H-28,218,20);x.fillStyle="#C9D1D9";x.fillText(`median ${fmt(res.M.median,3)} px · Q95 ${fmt(res.M.q95,3)} px`,14,H-14);
+}
+
+// ---- occupancy
+function renderOcc(){
+  const res=S.result,ctx=S.ctx,mx=Math.max(...res.counts),wrap=$("#occ-wrap");
+  wrap.style.setProperty("--ar",ctx.W/ctx.H);wrap.style.backgroundImage=`url(${S.src.canvas.toDataURL("image/jpeg",.7)})`;
+  $("#occ-grid").innerHTML=res.counts.map((n,i)=>{const on=n>=5,a=on?.18+.55*n/mx:0;return`<div class="occ-cell${on?" on":""}" style="transition-delay:${i*12}ms;${on?`background:rgba(34,211,238,${a.toFixed(2)});box-shadow:0 0 ${Math.round(4+10*n/mx)}px rgba(34,211,238,${(a*.9).toFixed(2)}) inset`:""}">${n||""}</div>`;}).join("");
+  const occN=res.counts.filter(n=>n>=5).length;
+  $("#occ-stats").innerHTML=`<span>occupied <b>${occN}/64</b></span><span>occupancy <b>${fmt(res.M.occupancy,2)}</b></span><span>hull <b>${fmt(res.M.hull*100,1)} %</b></span>`;
+}
+
+// ---- benchmark
+function renderBench(){
+  let r=S.result;
+  const isRef=S.srcSensor==="OHRC"&&S.refSensor==="NAC"&&S.scenario==="nominal";
+  if(!isRef){const c={...cfg(),srcSensor:"OHRC",refSensor:"NAC",scenario:"nominal"};r=runEngine(c,buildContext(c),{light:true});}
+  const B=BENCHMARK_BASELINE,L={rmse:r.M.rmse_src,q95:r.M.q95,ratio:r.M.ratio*100,occ:r.M.occupancy*100};
+  const rows=[["RMSE","src px",B.rmse,L.rmse,3,true],["Q95 error","src px",B.q95,L.q95,2,true],["Inlier ratio","%",B.ratio,L.ratio,1,false],["Grid occupancy","%",B.occ,L.occ,1,false]];
+  const Wv=460,rh=56,H=rows.length*rh+34,lx=112,bw=Wv-lx-70;
+  let s=`<svg viewBox="0 0 ${Wv} ${H}" width="100%" style="display:block;font-family:'JetBrains Mono',monospace">`;
+  s+=`<rect x="0" y="4" width="10" height="10" rx="2" fill="#8B95A3"/><text x="15" y="13" font-size="10.5" fill="#7D8793">${B.label}${B.placeholder?"*":""}</text>`;
+  s+=`<rect x="250" y="4" width="10" height="10" rx="2" fill="#22D3EE"/><text x="265" y="13" font-size="10.5" fill="#7D8793">LunarMatch-X (prototype)</text>`;
+  rows.forEach(([n,u,b,l,d,lower],i)=>{const y=30+i*rh,mx=Math.max(b,l)*1.08,better=lower?l<b:l>b;
+    s+=`<text x="0" y="${y+17}" font-size="11.5" fill="#C9D1D9" font-family="Exo 2,sans-serif" font-weight="600">${n}</text><text x="0" y="${y+31}" font-size="9.5" fill="#4A5361">${u} · ${lower?"↓":"↑"} better</text>`;
+    s+=`<rect x="${lx}" y="${y+4}" width="${bw}" height="16" rx="3" fill="rgba(148,163,184,.06)"/><rect class="bb" x="${lx}" y="${y+4}" width="0" data-w="${bw*b/mx}" height="16" rx="3" fill="#8B95A3" opacity=".75"/>`;
+    s+=`<text x="${lx+bw*b/mx+6}" y="${y+16}" font-size="10.5" fill="#C9D1D9">${fmt(b,d)}</text>`;
+    s+=`<rect x="${lx}" y="${y+24}" width="${bw}" height="16" rx="3" fill="rgba(148,163,184,.06)"/><rect class="bb" x="${lx}" y="${y+24}" width="0" data-w="${bw*l/mx}" height="16" rx="3" fill="#22D3EE" style="filter:drop-shadow(0 0 4px rgba(34,211,238,.6))"/>`;
+    s+=`<text x="${lx+bw*l/mx+6}" y="${y+36}" font-size="10.5" fill="${better?"#22C55E":"#F59E0B"}">${fmt(l,d)}</text>`;});
+  $("#bench").innerHTML=s+"</svg>";
+  requestAnimationFrame(()=>$$("#bench .bb").forEach((el,i)=>{el.style.transition=`width 1s cubic-bezier(.2,.8,.2,1) ${i*80}ms`;el.setAttribute("width",el.dataset.w);}));
+  $("#bench-note").innerHTML=(B.placeholder?"* Baseline values are placeholders pending the published SAC-ISRO 2025 figures. ":"")+(isRef?"":"LunarMatch-X bars: reference run OHRC→NAC, nominal, same source.");
+}
+
+/* ====================== EXPORT ====================== */
+function download(name,data,type){const blob=data instanceof Blob?data:new Blob([data],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);toast(`Saved ${name}`);}
+function metricsJSON(){const r=S.result,M=r.M,o={};for(const k in M)o[k]=+M[k].toFixed(k==="inliers"||k==="candidates"?0:5);
+  return{mode:"SIMULATED",verdict:r.verdict,confidence_pct:+r.conf.toFixed(2),reason:r.reason,metrics:o,units:{rmse_src:"source px",rmse_ref:"reference px",median:"source px",q95:"source px",reproj:"source px",stability:"source px",hull:"fraction of source frame",shadow:"fraction"},
+    gates:r.gates.map(g=>({code:g.code,name:g.name,value:g.val,rule:g.rule,status:g.st})),thresholds:TH};}
+function manifest(){
+  const r=S.result,c=r.ctx,conf={matchers:["SuperGlue","LightGlue","MINIMA","RIFT2"],fusion:"mutual-NN",verification:"MAGSAC++",deformation:"relief-aware TPS",refinement:"phase-correlation 31x31",
+    photometry:"Hapke",dem:"SLDEM2015",occupancy_grid:"8x8 (>=5 inliers)",perturbation_trials:16,thresholds:TH,scenario:S.scenario,src_sensor:S.srcSensor,ref_sensor:S.refSensor};
+  return{manifest_version:"1.0",pipeline:"LunarMatch-X",software_version:VERSION,mode:"SIMULATED — prototype UI, not a registered product",team:"INNO_CORES_149",challenge:"SIH26166",
+    source:{product_id:S.src.productId,mission:c.ss.mission,instrument:c.ss.inst,sensor:c.ss.id,gsd_m:c.ss.gsd,modality:c.ss.mod,dimensions_px:[S.src.origW,S.src.origH],fingerprint:S.src.fp},
+    reference:S.ref?{product_id:S.ref.productId,mission:c.rs.mission,instrument:c.rs.inst,sensor:c.rs.id,gsd_m:c.rs.gsd,modality:c.rs.mod,dimensions_px:[S.ref.origW,S.ref.origH],fingerprint:S.ref.fp}
+      :{product_id:"SIM-REF",mission:c.rs.mission,instrument:c.rs.inst,sensor:c.rs.id,gsd_m:c.rs.gsd,modality:c.rs.mod,derivation:"synthesised from source (warp + PSF + photometric model)"},
+    geometry:{latitude_band:c.latBand,center_lat_deg:+c.lat.toFixed(4),center_lon_deg:+c.lon.toFixed(4),incidence_src_deg:+c.incSrc.toFixed(2),incidence_ref_deg:+c.incRef.toFixed(2),sun_angle_delta_deg:+c.sunDelta.toFixed(2),common_gsd_m:c.targetGsd},
+    config:conf,config_hash:"cyrb53:"+hexHash(JSON.stringify(conf)),seed:c.seedHex,timestamp_utc:S.runTime||new Date().toISOString(),
+    decision:{verdict:r.verdict,confidence_pct:+r.conf.toFixed(2),reason:r.reason},
+    outputs:["match_points.csv","registered_product.png","metrics.json","provenance_manifest.json"]};
+}
+function csv(){
+  const r=S.result,sx=S.src.origW/S.ctx.W,sy=S.src.origH/S.ctx.H,rw=S.ref?S.ref.origW/S.ctx.refW:1,rh=S.ref?S.ref.origH/S.ctx.refH:1;
+  const rows=["src_line,src_sample,ref_line,ref_sample,confidence,residual,class"];
+  [...r.inliers,...r.outliers].forEach(p=>rows.push([(p.y*sy).toFixed(3),(p.x*sx).toFixed(3),(p.rfy*rh).toFixed(3),(p.rfx*rw).toFixed(3),p.conf.toFixed(4),p.res.toFixed(4),p.cls].join(",")));
+  return rows.join("\n");
+}
+function hl(json){return json.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/("(\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,m=>{
+  const c=/^"/.test(m)?(/:$/.test(m)?"j-k":"j-s"):/true|false|null/.test(m)?"j-b":"j-n";return`<span class="${c}">${m}</span>`;});}
+function renderExport(){
+  const r=S.result;if(!r)return;const pre=`lmx_${r.ctx.seedHex.slice(2).toLowerCase()}`,man=manifest();
+  const items=[["sheet","Match-Point Table","CSV · src_line, src_sample, ref_line, ref_sample, confidence, residual, class",`${pre}_match_points.csv`,`${fmtInt(r.inliers.length+r.outliers.length)} rows`,()=>download(`${pre}_match_points.csv`,csv(),"text/csv")],
+    ["image","Registered Product","PNG · source resampled into the reference frame",`${pre}_registered_product.png`,`${S.ctx.refW}×${S.ctx.refH} px`,()=>S.warp.toBlob(b=>download(`${pre}_registered_product.png`,b),"image/png")],
+    ["file-json","Metrics","JSON · accuracy, coverage, gate results and thresholds",`${pre}_metrics.json`,r.verdict,()=>download(`${pre}_metrics.json`,JSON.stringify(metricsJSON(),null,2),"application/json")],
+    ["fingerprint","Provenance Manifest","JSON · product IDs, sensors, software version, config hash, timestamp, seed",`${pre}_provenance_manifest.json`,man.config_hash.slice(0,18)+"…",()=>download(`${pre}_provenance_manifest.json`,JSON.stringify(manifest(),null,2),"application/json")]];
+  $("#export-grid").innerHTML=items.map((it,i)=>`<div class="card exp"><div class="ic"><i data-lucide="${it[0]}"></i></div><h3>${it[1]}</h3><p>${it[2]}</p><div class="fn">${it[3]}<br>${it[4]}</div><button class="btn" data-exp="${i}"><i data-lucide="download"></i>Download</button></div>`).join("");
+  $$("[data-exp]").forEach(b=>b.onclick=items[+b.dataset.exp][5]);
+  $("#manifest").innerHTML=hl(JSON.stringify(man,null,2));
+  const kv=(k,v)=>`<div><span>${k}</span><b>${v}</b></div>`;
+  $("#run-kv").innerHTML=kv("Verdict",`<span style="color:${r.verdict==="ACCEPTED"?"var(--green)":r.verdict==="FLAGGED"?"var(--amber)":"var(--red)"}">${r.verdict}</span> · ${fmt(r.conf,1)} %`)+kv("Seed",r.ctx.seedHex)+kv("Config hash",man.config_hash)
+    +kv("Source fingerprint",S.src.fp)+kv("Software",`LunarMatch-X ${VERSION}`)+kv("Timestamp (UTC)",man.timestamp_utc)+kv("Mode","SIMULATED");
+  icons();
+}
+
+/* ====================== STARFIELD ====================== */
+function starfield(){
+  const cv=$("#starfield"),x=cv.getContext("2d");let W,H,stars=[],mx=0,my=0;const R=rngTools(42);
+  const resize=()=>{const dpr=Math.min(2,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";x.setTransform(dpr,0,0,dpr,0,0);
+    stars=[];[[260,.35,.6,.04],[120,.7,1,.1],[45,1.1,1.6,.22]].forEach(([n,r0,r1,sp],layer)=>{for(let i=0;i<n*(W*H)/(1920*1080);i++)stars.push({x:R.u(0,W),y:R.u(0,H),r:R.u(r0,r1),sp,layer,tw:R.u(0,6.28),tws:R.u(.5,2),c:R.r()<.12?"180,220,255":R.r()<.1?"255,230,200":"230,237,243"});});};
+  resize();addEventListener("resize",resize);addEventListener("mousemove",e=>{mx=(e.clientX/W-.5);my=(e.clientY/H-.5);});
+  const neb=()=>{const g=x.createRadialGradient(W*.8,H*.15,0,W*.8,H*.15,W*.5);g.addColorStop(0,"rgba(59,130,246,.07)");g.addColorStop(1,"rgba(5,7,15,0)");x.fillStyle=g;x.fillRect(0,0,W,H);
+    const g2=x.createRadialGradient(W*.1,H*.7,0,W*.1,H*.7,W*.4);g2.addColorStop(0,"rgba(34,211,238,.04)");g2.addColorStop(1,"rgba(5,7,15,0)");x.fillStyle=g2;x.fillRect(0,0,W,H);};
+  const loop=t=>{x.fillStyle="#05070F";x.fillRect(0,0,W,H);neb();
+    for(const s of stars){s.x-=s.sp;if(s.x<-2)s.x=W+2;const px=s.x-mx*(s.layer+1)*8,py=s.y-my*(s.layer+1)*8,a=.45+.55*Math.abs(Math.sin(s.tw+t/1000*s.tws));
+      x.fillStyle=`rgba(${s.c},${a*(.5+s.layer*.25)})`;x.beginPath();x.arc(px,py,s.r,0,7);x.fill();}
+    requestAnimationFrame(loop);};
+  requestAnimationFrame(loop);
+}
+
+/* ====================== INIT ====================== */
+function init(){
+  starfield();icons();
+  setInterval(()=>{$("#utc").textContent="UTC "+new Date().toISOString().slice(11,19);},1000);
+  bindDrop("#drop-src","#file-src",(d,n)=>setSource(d,n,false));
+  bindDrop("#drop-ref","#file-ref",(d,n)=>setReference(d,n));
+  $("#sel-src").onchange=e=>{S.srcSensor=e.target.value;refreshSetup();};
+  $("#sel-ref").onchange=e=>{S.refSensor=e.target.value;refreshSetup();};
+  $$("#seg-scen button").forEach(b=>b.onclick=()=>{S.scenario=b.dataset.v;$$("#seg-scen button").forEach(o=>o.classList.toggle("on",o===b));refreshSetup();});
+  $("#run-btn").onclick=()=>{S.runTime=new Date().toISOString();clearTimeout(S.autoTimer);runPipeline();};
+  $$(".step").forEach(b=>b.onclick=()=>{if(!b.disabled){clearTimeout(S.autoTimer);show(b.dataset.sec);}});
+  $("#btn-view").onclick=()=>{clearTimeout(S.autoTimer);show("results");};
+  $("#btn-export").onclick=()=>show("export");
+  $("#btn-rerun").onclick=()=>show("setup");
+  $("#heat-op").oninput=e=>{S.heatOp=e.target.value/100;drawHeat();};
+  $("#m-links").oninput=e=>{S.match.links=+e.target.value;$("#m-links-v").textContent=e.target.value;drawMatches();};
+  $("#m-out").onclick=()=>{S.match.out=!S.match.out;$("#m-out").classList.toggle("on",S.match.out);drawMatches();};
+  $("#m-pts").onclick=()=>{S.match.pts=!S.match.pts;$("#m-pts").classList.toggle("on",S.match.pts);drawMatches();};
+  $("#copy-man").onclick=()=>{navigator.clipboard?.writeText(JSON.stringify(manifest(),null,2)).then(()=>toast("Manifest copied"),()=>toast("Clipboard unavailable"));};
+  bindViewer();
+  let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(S.view)S.view.k=0;drawAll();},150);});
+  // URL options (handy for recordings): ?scenario=polar&src=TMC2&ref=TC&auto=1&fast=1&goto=export
+  const Q=new URLSearchParams(location.search);
+  if(SRC_SENSORS[Q.get("src")]){S.srcSensor=Q.get("src");$("#sel-src").value=S.srcSensor;}
+  if(REF_SENSORS[Q.get("ref")]){S.refSensor=Q.get("ref");$("#sel-ref").value=S.refSensor;}
+  if(Q.get("scenario")==="polar"){S.scenario="polar";$$("#seg-scen button").forEach(o=>o.classList.toggle("on",o.dataset.v==="polar"));}
+  S.fast=Q.has("fast")||Q.has("still");S.still=Q.has("still");
+  if(S.still)document.head.insertAdjacentHTML("beforeend","<style>*{transition:none!important;animation:none!important}</style>");S.gotoExport=Q.get("goto")==="export";
+  if(window.LMX_SAMPLE) setSource(window.LMX_SAMPLE,"ohrc_sample.png",true).then(()=>{if(Q.has("auto"))$("#run-btn").click();}).catch(err=>{console.error(err);toast("Sample image failed to load — drop a source image");});
+  else toast("sample-image.js missing — drop a source image to begin");
+}
+init();
+window.LMX=S;
+</script>
+</body>
+</html>

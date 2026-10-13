@@ -1,0 +1,9 @@
+{
+    "product_id": "M176219771RE",
+    "file_size_bytes": 80380872,
+    "md5_provided": "Unknown (not extracted from XML yet)",
+    "dimensions": "5064 x 52224 (typical for NAC EDR)",
+    "datatype": "UnsignedByte / 16-bit integer depending on companding",
+    "overlap_status": "PARTIAL OVERLAP",
+    "intersection_area": 0.14074176259322083
+}

@@ -1,0 +1,20 @@
+{
+    "mission": "LUNAR RECONNAISSANCE ORBITER",
+    "instrument": "LROC",
+    "product_id": "M1496013656RC",
+    "product_type": "CDR",
+    "orbit": 70653,
+    "acquisition": {
+        "start": "2025-03-07T19:06:29.497"
+    },
+    "width": 5064,
+    "height": 52224,
+    "pixel_resolution_m": null,
+    "incidence_angle_deg": null,
+    "emission_angle_deg": null,
+    "phase_angle_deg": null,
+    "footprint": null,
+    "sun_azimuth_deg": null,
+    "subsolar_latitude_deg": null,
+    "subsolar_longitude_deg": null
+}

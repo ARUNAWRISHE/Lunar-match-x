@@ -1,0 +1,3232 @@
+[
+    {
+        "queryIdx": 82,
+        "trainIdx": 0,
+        "distance": 190.6200408935547
+    },
+    {
+        "queryIdx": 87,
+        "trainIdx": 4,
+        "distance": 228.1863250732422
+    },
+    {
+        "queryIdx": 90,
+        "trainIdx": 12,
+        "distance": 69.28203582763672
+    },
+    {
+        "queryIdx": 94,
+        "trainIdx": 14,
+        "distance": 206.2183380126953
+    },
+    {
+        "queryIdx": 98,
+        "trainIdx": 17,
+        "distance": 58.154964447021484
+    },
+    {
+        "queryIdx": 99,
+        "trainIdx": 17,
+        "distance": 189.05819702148438
+    },
+    {
+        "queryIdx": 100,
+        "trainIdx": 20,
+        "distance": 102.35721588134766
+    },
+    {
+        "queryIdx": 101,
+        "trainIdx": 18,
+        "distance": 77.80745697021484
+    },
+    {
+        "queryIdx": 102,
+        "trainIdx": 26,
+        "distance": 93.16114807128906
+    },
+    {
+        "queryIdx": 103,
+        "trainIdx": 23,
+        "distance": 113.21218872070312
+    },
+    {
+        "queryIdx": 105,
+        "trainIdx": 24,
+        "distance": 103.65808868408203
+    },
+    {
+        "queryIdx": 106,
+        "trainIdx": 25,
+        "distance": 116.89311218261719
+    },
+    {
+        "queryIdx": 111,
+        "trainIdx": 29,
+        "distance": 122.94307708740234
+    },
+    {
+        "queryIdx": 112,
+        "trainIdx": 30,
+        "distance": 69.6778335571289
+    },
+    {
+        "queryIdx": 114,
+        "trainIdx": 32,
+        "distance": 60.357269287109375
+    },
+    {
+        "queryIdx": 118,
+        "trainIdx": 42,
+        "distance": 25.806976318359375
+    },
+    {
+        "queryIdx": 119,
+        "trainIdx": 45,
+        "distance": 34.75629425048828
+    },
+    {
+        "queryIdx": 120,
+        "trainIdx": 46,
+        "distance": 99.55400848388672
+    },
+    {
+        "queryIdx": 122,
+        "trainIdx": 49,
+        "distance": 81.14185333251953
+    },
+    {
+        "queryIdx": 123,
+        "trainIdx": 50,
+        "distance": 149.57940673828125
+    },
+    {
+        "queryIdx": 130,
+        "trainIdx": 56,
+        "distance": 98.93431854248047
+    },
+    {
+        "queryIdx": 133,
+        "trainIdx": 60,
+        "distance": 35.44009017944336
+    },
+    {
+        "queryIdx": 134,
+        "trainIdx": 61,
+        "distance": 42.68489074707031
+    },
+    {
+        "queryIdx": 137,
+        "trainIdx": 62,
+        "distance": 62.64183807373047
+    },
+    {
+        "queryIdx": 139,
+        "trainIdx": 66,
+        "distance": 23.53720474243164
+    },
+    {
+        "queryIdx": 140,
+        "trainIdx": 68,
+        "distance": 52.076866149902344
+    },
+    {
+        "queryIdx": 141,
+        "trainIdx": 69,
+        "distance": 46.173583984375
+    },
+    {
+        "queryIdx": 142,
+        "trainIdx": 70,
+        "distance": 52.611785888671875
+    },
+    {
+        "queryIdx": 143,
+        "trainIdx": 72,
+        "distance": 33.79349136352539
+    },
+    {
+        "queryIdx": 144,
+        "trainIdx": 73,
+        "distance": 27.386127471923828
+    },
+    {
+        "queryIdx": 145,
+        "trainIdx": 75,
+        "distance": 17.944358825683594
+    },
+    {
+        "queryIdx": 146,
+        "trainIdx": 76,
+        "distance": 18.76166343688965
+    },
+    {
+        "queryIdx": 147,
+        "trainIdx": 77,
+        "distance": 52.77309799194336
+    },
+    {
+        "queryIdx": 148,
+        "trainIdx": 78,
+        "distance": 26.758176803588867
+    },
+    {
+        "queryIdx": 149,
+        "trainIdx": 79,
+        "distance": 23.323806762695312
+    },
+    {
+        "queryIdx": 153,
+        "trainIdx": 81,
+        "distance": 162.6407012939453
+    },
+    {
+        "queryIdx": 154,
+        "trainIdx": 85,
+        "distance": 71.48426055908203
+    },
+    {
+        "queryIdx": 155,
+        "trainIdx": 82,
+        "distance": 44.9110221862793
+    },
+    {
+        "queryIdx": 156,
+        "trainIdx": 83,
+        "distance": 56.595054626464844
+    },
+    {
+        "queryIdx": 157,
+        "trainIdx": 87,
+        "distance": 69.0
+    },
+    {
+        "queryIdx": 162,
+        "trainIdx": 88,
+        "distance": 41.509037017822266
+    },
+    {
+        "queryIdx": 163,
+        "trainIdx": 89,
+        "distance": 41.388404846191406
+    },
+    {
+        "queryIdx": 164,
+        "trainIdx": 90,
+        "distance": 74.10128021240234
+    },
+    {
+        "queryIdx": 166,
+        "trainIdx": 93,
+        "distance": 50.82322311401367
+    },
+    {
+        "queryIdx": 167,
+        "trainIdx": 94,
+        "distance": 52.23025894165039
+    },
+    {
+        "queryIdx": 168,
+        "trainIdx": 97,
+        "distance": 70.9295425415039
+    },
+    {
+        "queryIdx": 169,
+        "trainIdx": 98,
+        "distance": 29.866369247436523
+    },
+    {
+        "queryIdx": 170,
+        "trainIdx": 99,
+        "distance": 25.961509704589844
+    },
+    {
+        "queryIdx": 171,
+        "trainIdx": 100,
+        "distance": 23.0867919921875
+    },
+    {
+        "queryIdx": 173,
+        "trainIdx": 101,
+        "distance": 42.62628173828125
+    },
+    {
+        "queryIdx": 175,
+        "trainIdx": 105,
+        "distance": 32.588340759277344
+    },
+    {
+        "queryIdx": 176,
+        "trainIdx": 106,
+        "distance": 113.70575714111328
+    },
+    {
+        "queryIdx": 177,
+        "trainIdx": 107,
+        "distance": 29.017236709594727
+    },
+    {
+        "queryIdx": 178,
+        "trainIdx": 112,
+        "distance": 143.86451721191406
+    },
+    {
+        "queryIdx": 179,
+        "trainIdx": 114,
+        "distance": 199.228515625
+    },
+    {
+        "queryIdx": 189,
+        "trainIdx": 118,
+        "distance": 31.208972930908203
+    },
+    {
+        "queryIdx": 190,
+        "trainIdx": 119,
+        "distance": 52.163204193115234
+    },
+    {
+        "queryIdx": 195,
+        "trainIdx": 124,
+        "distance": 226.01991271972656
+    },
+    {
+        "queryIdx": 203,
+        "trainIdx": 125,
+        "distance": 36.78314971923828
+    },
+    {
+        "queryIdx": 205,
+        "trainIdx": 129,
+        "distance": 35.11410140991211
+    },
+    {
+        "queryIdx": 206,
+        "trainIdx": 130,
+        "distance": 28.44292449951172
+    },
+    {
+        "queryIdx": 208,
+        "trainIdx": 131,
+        "distance": 28.635643005371094
+    },
+    {
+        "queryIdx": 209,
+        "trainIdx": 132,
+        "distance": 29.46183967590332
+    },
+    {
+        "queryIdx": 210,
+        "trainIdx": 133,
+        "distance": 35.93048858642578
+    },
+    {
+        "queryIdx": 215,
+        "trainIdx": 140,
+        "distance": 34.249088287353516
+    },
+    {
+        "queryIdx": 218,
+        "trainIdx": 145,
+        "distance": 46.63689422607422
+    },
+    {
+        "queryIdx": 220,
+        "trainIdx": 147,
+        "distance": 145.89036560058594
+    },
+    {
+        "queryIdx": 221,
+        "trainIdx": 149,
+        "distance": 193.27700805664062
+    },
+    {
+        "queryIdx": 226,
+        "trainIdx": 151,
+        "distance": 66.79820251464844
+    },
+    {
+        "queryIdx": 229,
+        "trainIdx": 155,
+        "distance": 33.22649383544922
+    },
+    {
+        "queryIdx": 230,
+        "trainIdx": 156,
+        "distance": 44.643028259277344
+    },
+    {
+        "queryIdx": 231,
+        "trainIdx": 157,
+        "distance": 129.4140625
+    },
+    {
+        "queryIdx": 243,
+        "trainIdx": 166,
+        "distance": 36.9052848815918
+    },
+    {
+        "queryIdx": 249,
+        "trainIdx": 168,
+        "distance": 150.04666137695312
+    },
+    {
+        "queryIdx": 251,
+        "trainIdx": 172,
+        "distance": 41.44876480102539
+    },
+    {
+        "queryIdx": 252,
+        "trainIdx": 169,
+        "distance": 33.1662483215332
+    },
+    {
+        "queryIdx": 253,
+        "trainIdx": 170,
+        "distance": 36.09709167480469
+    },
+    {
+        "queryIdx": 255,
+        "trainIdx": 174,
+        "distance": 28.792360305786133
+    },
+    {
+        "queryIdx": 256,
+        "trainIdx": 175,
+        "distance": 33.241539001464844
+    },
+    {
+        "queryIdx": 257,
+        "trainIdx": 176,
+        "distance": 36.98648452758789
+    },
+    {
+        "queryIdx": 263,
+        "trainIdx": 178,
+        "distance": 47.6235237121582
+    },
+    {
+        "queryIdx": 266,
+        "trainIdx": 179,
+        "distance": 34.66987228393555
+    },
+    {
+        "queryIdx": 268,
+        "trainIdx": 181,
+        "distance": 36.207733154296875
+    },
+    {
+        "queryIdx": 269,
+        "trainIdx": 180,
+        "distance": 36.523963928222656
+    },
+    {
+        "queryIdx": 270,
+        "trainIdx": 182,
+        "distance": 30.545047760009766
+    },
+    {
+        "queryIdx": 273,
+        "trainIdx": 183,
+        "distance": 36.97296142578125
+    },
+    {
+        "queryIdx": 274,
+        "trainIdx": 184,
+        "distance": 44.04542922973633
+    },
+    {
+        "queryIdx": 275,
+        "trainIdx": 185,
+        "distance": 23.021728515625
+    },
+    {
+        "queryIdx": 276,
+        "trainIdx": 188,
+        "distance": 63.74166488647461
+    },
+    {
+        "queryIdx": 285,
+        "trainIdx": 195,
+        "distance": 42.34383010864258
+    },
+    {
+        "queryIdx": 286,
+        "trainIdx": 200,
+        "distance": 25.219039916992188
+    },
+    {
+        "queryIdx": 287,
+        "trainIdx": 201,
+        "distance": 33.89690399169922
+    },
+    {
+        "queryIdx": 288,
+        "trainIdx": 202,
+        "distance": 33.2866325378418
+    },
+    {
+        "queryIdx": 289,
+        "trainIdx": 203,
+        "distance": 26.115129470825195
+    },
+    {
+        "queryIdx": 294,
+        "trainIdx": 212,
+        "distance": 24.0
+    },
+    {
+        "queryIdx": 298,
+        "trainIdx": 213,
+        "distance": 33.541019439697266
+    },
+    {
+        "queryIdx": 301,
+        "trainIdx": 220,
+        "distance": 37.90778350830078
+    },
+    {
+        "queryIdx": 303,
+        "trainIdx": 222,
+        "distance": 81.25884246826172
+    },
+    {
+        "queryIdx": 306,
+        "trainIdx": 235,
+        "distance": 100.6926040649414
+    },
+    {
+        "queryIdx": 311,
+        "trainIdx": 236,
+        "distance": 142.01760864257812
+    },
+    {
+        "queryIdx": 312,
+        "trainIdx": 240,
+        "distance": 53.52569580078125
+    },
+    {
+        "queryIdx": 313,
+        "trainIdx": 241,
+        "distance": 51.49757385253906
+    },
+    {
+        "queryIdx": 314,
+        "trainIdx": 244,
+        "distance": 213.29087829589844
+    },
+    {
+        "queryIdx": 315,
+        "trainIdx": 245,
+        "distance": 58.74521255493164
+    },
+    {
+        "queryIdx": 316,
+        "trainIdx": 246,
+        "distance": 73.5051040649414
+    },
+    {
+        "queryIdx": 319,
+        "trainIdx": 249,
+        "distance": 35.735137939453125
+    },
+    {
+        "queryIdx": 321,
+        "trainIdx": 250,
+        "distance": 40.211936950683594
+    },
+    {
+        "queryIdx": 323,
+        "trainIdx": 252,
+        "distance": 36.53765106201172
+    },
+    {
+        "queryIdx": 326,
+        "trainIdx": 254,
+        "distance": 96.11972045898438
+    },
+    {
+        "queryIdx": 329,
+        "trainIdx": 258,
+        "distance": 33.970577239990234
+    },
+    {
+        "queryIdx": 330,
+        "trainIdx": 260,
+        "distance": 98.72183227539062
+    },
+    {
+        "queryIdx": 331,
+        "trainIdx": 261,
+        "distance": 127.2713623046875
+    },
+    {
+        "queryIdx": 332,
+        "trainIdx": 262,
+        "distance": 80.93824768066406
+    },
+    {
+        "queryIdx": 335,
+        "trainIdx": 265,
+        "distance": 49.959983825683594
+    },
+    {
+        "queryIdx": 336,
+        "trainIdx": 266,
+        "distance": 53.98147964477539
+    },
+    {
+        "queryIdx": 337,
+        "trainIdx": 267,
+        "distance": 52.9716911315918
+    },
+    {
+        "queryIdx": 338,
+        "trainIdx": 268,
+        "distance": 52.5927734375
+    },
+    {
+        "queryIdx": 339,
+        "trainIdx": 269,
+        "distance": 75.42546081542969
+    },
+    {
+        "queryIdx": 342,
+        "trainIdx": 270,
+        "distance": 25.942243576049805
+    },
+    {
+        "queryIdx": 344,
+        "trainIdx": 273,
+        "distance": 114.56439208984375
+    },
+    {
+        "queryIdx": 345,
+        "trainIdx": 274,
+        "distance": 43.96589660644531
+    },
+    {
+        "queryIdx": 349,
+        "trainIdx": 276,
+        "distance": 49.70915222167969
+    },
+    {
+        "queryIdx": 352,
+        "trainIdx": 280,
+        "distance": 28.98275375366211
+    },
+    {
+        "queryIdx": 354,
+        "trainIdx": 287,
+        "distance": 154.4182586669922
+    },
+    {
+        "queryIdx": 360,
+        "trainIdx": 292,
+        "distance": 34.65544509887695
+    },
+    {
+        "queryIdx": 361,
+        "trainIdx": 293,
+        "distance": 33.30165100097656
+    },
+    {
+        "queryIdx": 362,
+        "trainIdx": 294,
+        "distance": 30.8544979095459
+    },
+    {
+        "queryIdx": 364,
+        "trainIdx": 297,
+        "distance": 41.964271545410156
+    },
+    {
+        "queryIdx": 365,
+        "trainIdx": 298,
+        "distance": 42.778499603271484
+    },
+    {
+        "queryIdx": 367,
+        "trainIdx": 299,
+        "distance": 31.95309066772461
+    },
+    {
+        "queryIdx": 371,
+        "trainIdx": 303,
+        "distance": 21.67948341369629
+    },
+    {
+        "queryIdx": 372,
+        "trainIdx": 304,
+        "distance": 51.107730865478516
+    },
+    {
+        "queryIdx": 374,
+        "trainIdx": 305,
+        "distance": 104.0384521484375
+    },
+    {
+        "queryIdx": 375,
+        "trainIdx": 306,
+        "distance": 114.72140502929688
+    },
+    {
+        "queryIdx": 376,
+        "trainIdx": 308,
+        "distance": 88.5945816040039
+    },
+    {
+        "queryIdx": 381,
+        "trainIdx": 316,
+        "distance": 42.095130920410156
+    },
+    {
+        "queryIdx": 382,
+        "trainIdx": 317,
+        "distance": 41.35214614868164
+    },
+    {
+        "queryIdx": 386,
+        "trainIdx": 323,
+        "distance": 27.037012100219727
+    },
+    {
+        "queryIdx": 387,
+        "trainIdx": 324,
+        "distance": 32.15586853027344
+    },
+    {
+        "queryIdx": 389,
+        "trainIdx": 326,
+        "distance": 27.658634185791016
+    },
+    {
+        "queryIdx": 390,
+        "trainIdx": 327,
+        "distance": 38.69108581542969
+    },
+    {
+        "queryIdx": 391,
+        "trainIdx": 329,
+        "distance": 69.0
+    },
+    {
+        "queryIdx": 392,
+        "trainIdx": 330,
+        "distance": 58.52349853515625
+    },
+    {
+        "queryIdx": 394,
+        "trainIdx": 334,
+        "distance": 56.762664794921875
+    },
+    {
+        "queryIdx": 395,
+        "trainIdx": 336,
+        "distance": 47.19110107421875
+    },
+    {
+        "queryIdx": 401,
+        "trainIdx": 339,
+        "distance": 65.4675521850586
+    },
+    {
+        "queryIdx": 404,
+        "trainIdx": 348,
+        "distance": 42.2255859375
+    },
+    {
+        "queryIdx": 409,
+        "trainIdx": 353,
+        "distance": 83.82123565673828
+    },
+    {
+        "queryIdx": 411,
+        "trainIdx": 354,
+        "distance": 99.63935089111328
+    },
+    {
+        "queryIdx": 412,
+        "trainIdx": 357,
+        "distance": 30.8544979095459
+    },
+    {
+        "queryIdx": 413,
+        "trainIdx": 358,
+        "distance": 34.65544509887695
+    },
+    {
+        "queryIdx": 414,
+        "trainIdx": 361,
+        "distance": 57.688819885253906
+    },
+    {
+        "queryIdx": 415,
+        "trainIdx": 362,
+        "distance": 52.4404411315918
+    },
+    {
+        "queryIdx": 416,
+        "trainIdx": 365,
+        "distance": 110.63905334472656
+    },
+    {
+        "queryIdx": 417,
+        "trainIdx": 366,
+        "distance": 92.157470703125
+    },
+    {
+        "queryIdx": 419,
+        "trainIdx": 367,
+        "distance": 107.69865417480469
+    },
+    {
+        "queryIdx": 421,
+        "trainIdx": 368,
+        "distance": 105.26632690429688
+    },
+    {
+        "queryIdx": 425,
+        "trainIdx": 371,
+        "distance": 46.77606201171875
+    },
+    {
+        "queryIdx": 430,
+        "trainIdx": 375,
+        "distance": 57.887821197509766
+    },
+    {
+        "queryIdx": 432,
+        "trainIdx": 378,
+        "distance": 56.964900970458984
+    },
+    {
+        "queryIdx": 433,
+        "trainIdx": 380,
+        "distance": 35.482391357421875
+    },
+    {
+        "queryIdx": 434,
+        "trainIdx": 381,
+        "distance": 33.39161682128906
+    },
+    {
+        "queryIdx": 437,
+        "trainIdx": 383,
+        "distance": 43.09292221069336
+    },
+    {
+        "queryIdx": 439,
+        "trainIdx": 384,
+        "distance": 50.59644317626953
+    },
+    {
+        "queryIdx": 440,
+        "trainIdx": 386,
+        "distance": 35.0142822265625
+    },
+    {
+        "queryIdx": 441,
+        "trainIdx": 389,
+        "distance": 46.77606201171875
+    },
+    {
+        "queryIdx": 443,
+        "trainIdx": 393,
+        "distance": 69.49819946289062
+    },
+    {
+        "queryIdx": 447,
+        "trainIdx": 394,
+        "distance": 28.530685424804688
+    },
+    {
+        "queryIdx": 448,
+        "trainIdx": 395,
+        "distance": 24.351591110229492
+    },
+    {
+        "queryIdx": 452,
+        "trainIdx": 397,
+        "distance": 38.35361862182617
+    },
+    {
+        "queryIdx": 454,
+        "trainIdx": 400,
+        "distance": 38.65229797363281
+    },
+    {
+        "queryIdx": 460,
+        "trainIdx": 401,
+        "distance": 56.20498275756836
+    },
+    {
+        "queryIdx": 468,
+        "trainIdx": 411,
+        "distance": 76.13803100585938
+    },
+    {
+        "queryIdx": 469,
+        "trainIdx": 412,
+        "distance": 72.09716033935547
+    },
+    {
+        "queryIdx": 470,
+        "trainIdx": 413,
+        "distance": 54.267852783203125
+    },
+    {
+        "queryIdx": 471,
+        "trainIdx": 414,
+        "distance": 32.03123474121094
+    },
+    {
+        "queryIdx": 472,
+        "trainIdx": 415,
+        "distance": 57.061370849609375
+    },
+    {
+        "queryIdx": 473,
+        "trainIdx": 416,
+        "distance": 45.650848388671875
+    },
+    {
+        "queryIdx": 475,
+        "trainIdx": 420,
+        "distance": 128.4172821044922
+    },
+    {
+        "queryIdx": 476,
+        "trainIdx": 419,
+        "distance": 41.70132064819336
+    },
+    {
+        "queryIdx": 477,
+        "trainIdx": 421,
+        "distance": 113.37989044189453
+    },
+    {
+        "queryIdx": 478,
+        "trainIdx": 423,
+        "distance": 234.36509704589844
+    },
+    {
+        "queryIdx": 479,
+        "trainIdx": 423,
+        "distance": 43.520111083984375
+    },
+    {
+        "queryIdx": 480,
+        "trainIdx": 424,
+        "distance": 38.18376541137695
+    },
+    {
+        "queryIdx": 481,
+        "trainIdx": 425,
+        "distance": 20.639766693115234
+    },
+    {
+        "queryIdx": 482,
+        "trainIdx": 426,
+        "distance": 71.7077407836914
+    },
+    {
+        "queryIdx": 484,
+        "trainIdx": 427,
+        "distance": 30.561412811279297
+    },
+    {
+        "queryIdx": 485,
+        "trainIdx": 428,
+        "distance": 70.83784484863281
+    },
+    {
+        "queryIdx": 489,
+        "trainIdx": 431,
+        "distance": 26.68332862854004
+    },
+    {
+        "queryIdx": 490,
+        "trainIdx": 434,
+        "distance": 55.785301208496094
+    },
+    {
+        "queryIdx": 491,
+        "trainIdx": 435,
+        "distance": 75.1664810180664
+    },
+    {
+        "queryIdx": 492,
+        "trainIdx": 436,
+        "distance": 36.60601043701172
+    },
+    {
+        "queryIdx": 493,
+        "trainIdx": 437,
+        "distance": 79.8936767578125
+    },
+    {
+        "queryIdx": 495,
+        "trainIdx": 445,
+        "distance": 26.739484786987305
+    },
+    {
+        "queryIdx": 496,
+        "trainIdx": 446,
+        "distance": 34.2928581237793
+    },
+    {
+        "queryIdx": 498,
+        "trainIdx": 451,
+        "distance": 42.41461944580078
+    },
+    {
+        "queryIdx": 500,
+        "trainIdx": 452,
+        "distance": 168.83424377441406
+    },
+    {
+        "queryIdx": 502,
+        "trainIdx": 453,
+        "distance": 28.407745361328125
+    },
+    {
+        "queryIdx": 518,
+        "trainIdx": 465,
+        "distance": 68.68769836425781
+    },
+    {
+        "queryIdx": 525,
+        "trainIdx": 472,
+        "distance": 30.91925048828125
+    },
+    {
+        "queryIdx": 526,
+        "trainIdx": 473,
+        "distance": 29.51270866394043
+    },
+    {
+        "queryIdx": 527,
+        "trainIdx": 474,
+        "distance": 28.513154983520508
+    },
+    {
+        "queryIdx": 528,
+        "trainIdx": 475,
+        "distance": 52.754146575927734
+    },
+    {
+        "queryIdx": 529,
+        "trainIdx": 476,
+        "distance": 55.1815185546875
+    },
+    {
+        "queryIdx": 530,
+        "trainIdx": 477,
+        "distance": 59.66573715209961
+    },
+    {
+        "queryIdx": 531,
+        "trainIdx": 478,
+        "distance": 35.411861419677734
+    },
+    {
+        "queryIdx": 533,
+        "trainIdx": 479,
+        "distance": 77.96794128417969
+    },
+    {
+        "queryIdx": 534,
+        "trainIdx": 480,
+        "distance": 71.74956512451172
+    },
+    {
+        "queryIdx": 535,
+        "trainIdx": 481,
+        "distance": 41.04875183105469
+    },
+    {
+        "queryIdx": 545,
+        "trainIdx": 495,
+        "distance": 55.785301208496094
+    },
+    {
+        "queryIdx": 553,
+        "trainIdx": 502,
+        "distance": 25.553865432739258
+    },
+    {
+        "queryIdx": 554,
+        "trainIdx": 503,
+        "distance": 23.93741798400879
+    },
+    {
+        "queryIdx": 559,
+        "trainIdx": 505,
+        "distance": 42.41461944580078
+    },
+    {
+        "queryIdx": 560,
+        "trainIdx": 506,
+        "distance": 153.80831909179688
+    },
+    {
+        "queryIdx": 565,
+        "trainIdx": 508,
+        "distance": 24.718414306640625
+    },
+    {
+        "queryIdx": 566,
+        "trainIdx": 509,
+        "distance": 73.41661834716797
+    },
+    {
+        "queryIdx": 567,
+        "trainIdx": 510,
+        "distance": 80.318115234375
+    },
+    {
+        "queryIdx": 568,
+        "trainIdx": 511,
+        "distance": 32.80244064331055
+    },
+    {
+        "queryIdx": 573,
+        "trainIdx": 515,
+        "distance": 40.38563919067383
+    },
+    {
+        "queryIdx": 574,
+        "trainIdx": 516,
+        "distance": 182.57054138183594
+    },
+    {
+        "queryIdx": 579,
+        "trainIdx": 525,
+        "distance": 87.68124389648438
+    },
+    {
+        "queryIdx": 580,
+        "trainIdx": 527,
+        "distance": 43.127716064453125
+    },
+    {
+        "queryIdx": 581,
+        "trainIdx": 528,
+        "distance": 56.859474182128906
+    },
+    {
+        "queryIdx": 582,
+        "trainIdx": 530,
+        "distance": 66.79820251464844
+    },
+    {
+        "queryIdx": 583,
+        "trainIdx": 531,
+        "distance": 216.2799072265625
+    },
+    {
+        "queryIdx": 590,
+        "trainIdx": 534,
+        "distance": 183.27029418945312
+    },
+    {
+        "queryIdx": 594,
+        "trainIdx": 536,
+        "distance": 46.389652252197266
+    },
+    {
+        "queryIdx": 595,
+        "trainIdx": 537,
+        "distance": 43.863426208496094
+    },
+    {
+        "queryIdx": 597,
+        "trainIdx": 538,
+        "distance": 40.074928283691406
+    },
+    {
+        "queryIdx": 598,
+        "trainIdx": 541,
+        "distance": 69.41901397705078
+    },
+    {
+        "queryIdx": 599,
+        "trainIdx": 542,
+        "distance": 64.9615249633789
+    },
+    {
+        "queryIdx": 600,
+        "trainIdx": 543,
+        "distance": 86.0987777709961
+    },
+    {
+        "queryIdx": 601,
+        "trainIdx": 544,
+        "distance": 45.694637298583984
+    },
+    {
+        "queryIdx": 602,
+        "trainIdx": 545,
+        "distance": 47.11687469482422
+    },
+    {
+        "queryIdx": 605,
+        "trainIdx": 554,
+        "distance": 58.24946212768555
+    },
+    {
+        "queryIdx": 612,
+        "trainIdx": 557,
+        "distance": 93.56815338134766
+    },
+    {
+        "queryIdx": 613,
+        "trainIdx": 558,
+        "distance": 47.8434944152832
+    },
+    {
+        "queryIdx": 621,
+        "trainIdx": 564,
+        "distance": 72.80796813964844
+    },
+    {
+        "queryIdx": 622,
+        "trainIdx": 565,
+        "distance": 65.14598846435547
+    },
+    {
+        "queryIdx": 624,
+        "trainIdx": 566,
+        "distance": 140.41368103027344
+    },
+    {
+        "queryIdx": 625,
+        "trainIdx": 567,
+        "distance": 110.51244354248047
+    },
+    {
+        "queryIdx": 633,
+        "trainIdx": 568,
+        "distance": 26.419689178466797
+    },
+    {
+        "queryIdx": 634,
+        "trainIdx": 569,
+        "distance": 43.72642135620117
+    },
+    {
+        "queryIdx": 635,
+        "trainIdx": 570,
+        "distance": 51.55579376220703
+    },
+    {
+        "queryIdx": 636,
+        "trainIdx": 574,
+        "distance": 150.57223510742188
+    },
+    {
+        "queryIdx": 637,
+        "trainIdx": 578,
+        "distance": 29.96664810180664
+    },
+    {
+        "queryIdx": 638,
+        "trainIdx": 580,
+        "distance": 41.521080017089844
+    },
+    {
+        "queryIdx": 650,
+        "trainIdx": 584,
+        "distance": 62.24949645996094
+    },
+    {
+        "queryIdx": 652,
+        "trainIdx": 588,
+        "distance": 41.04875183105469
+    },
+    {
+        "queryIdx": 655,
+        "trainIdx": 593,
+        "distance": 29.866369247436523
+    },
+    {
+        "queryIdx": 656,
+        "trainIdx": 594,
+        "distance": 46.615447998046875
+    },
+    {
+        "queryIdx": 660,
+        "trainIdx": 596,
+        "distance": 110.71585083007812
+    },
+    {
+        "queryIdx": 664,
+        "trainIdx": 598,
+        "distance": 24.372116088867188
+    },
+    {
+        "queryIdx": 665,
+        "trainIdx": 599,
+        "distance": 26.944387435913086
+    },
+    {
+        "queryIdx": 669,
+        "trainIdx": 602,
+        "distance": 40.31128692626953
+    },
+    {
+        "queryIdx": 671,
+        "trainIdx": 603,
+        "distance": 31.984371185302734
+    },
+    {
+        "queryIdx": 673,
+        "trainIdx": 605,
+        "distance": 29.478805541992188
+    },
+    {
+        "queryIdx": 675,
+        "trainIdx": 608,
+        "distance": 27.073972702026367
+    },
+    {
+        "queryIdx": 676,
+        "trainIdx": 609,
+        "distance": 27.874719619750977
+    },
+    {
+        "queryIdx": 677,
+        "trainIdx": 611,
+        "distance": 74.31688690185547
+    },
+    {
+        "queryIdx": 687,
+        "trainIdx": 622,
+        "distance": 59.94997787475586
+    },
+    {
+        "queryIdx": 688,
+        "trainIdx": 623,
+        "distance": 60.63827133178711
+    },
+    {
+        "queryIdx": 693,
+        "trainIdx": 627,
+        "distance": 26.134267807006836
+    },
+    {
+        "queryIdx": 694,
+        "trainIdx": 628,
+        "distance": 24.75883674621582
+    },
+    {
+        "queryIdx": 701,
+        "trainIdx": 629,
+        "distance": 60.249481201171875
+    },
+    {
+        "queryIdx": 702,
+        "trainIdx": 630,
+        "distance": 105.31856536865234
+    },
+    {
+        "queryIdx": 709,
+        "trainIdx": 632,
+        "distance": 67.32012939453125
+    },
+    {
+        "queryIdx": 710,
+        "trainIdx": 633,
+        "distance": 79.58643341064453
+    },
+    {
+        "queryIdx": 711,
+        "trainIdx": 635,
+        "distance": 25.942243576049805
+    },
+    {
+        "queryIdx": 712,
+        "trainIdx": 636,
+        "distance": 70.80960083007812
+    },
+    {
+        "queryIdx": 714,
+        "trainIdx": 646,
+        "distance": 32.84813690185547
+    },
+    {
+        "queryIdx": 715,
+        "trainIdx": 647,
+        "distance": 36.68787384033203
+    },
+    {
+        "queryIdx": 716,
+        "trainIdx": 648,
+        "distance": 33.241539001464844
+    },
+    {
+        "queryIdx": 717,
+        "trainIdx": 649,
+        "distance": 37.549964904785156
+    },
+    {
+        "queryIdx": 718,
+        "trainIdx": 651,
+        "distance": 31.416555404663086
+    },
+    {
+        "queryIdx": 721,
+        "trainIdx": 657,
+        "distance": 38.85871887207031
+    },
+    {
+        "queryIdx": 722,
+        "trainIdx": 658,
+        "distance": 34.77067565917969
+    },
+    {
+        "queryIdx": 723,
+        "trainIdx": 659,
+        "distance": 40.755367279052734
+    },
+    {
+        "queryIdx": 724,
+        "trainIdx": 663,
+        "distance": 34.45286560058594
+    },
+    {
+        "queryIdx": 725,
+        "trainIdx": 664,
+        "distance": 59.253692626953125
+    },
+    {
+        "queryIdx": 726,
+        "trainIdx": 668,
+        "distance": 179.39341735839844
+    },
+    {
+        "queryIdx": 730,
+        "trainIdx": 672,
+        "distance": 82.52272033691406
+    },
+    {
+        "queryIdx": 732,
+        "trainIdx": 674,
+        "distance": 41.388404846191406
+    },
+    {
+        "queryIdx": 733,
+        "trainIdx": 675,
+        "distance": 78.50477600097656
+    },
+    {
+        "queryIdx": 734,
+        "trainIdx": 682,
+        "distance": 51.009803771972656
+    },
+    {
+        "queryIdx": 741,
+        "trainIdx": 684,
+        "distance": 117.20068359375
+    },
+    {
+        "queryIdx": 742,
+        "trainIdx": 685,
+        "distance": 106.18379974365234
+    },
+    {
+        "queryIdx": 743,
+        "trainIdx": 690,
+        "distance": 60.81940460205078
+    },
+    {
+        "queryIdx": 744,
+        "trainIdx": 695,
+        "distance": 34.102787017822266
+    },
+    {
+        "queryIdx": 745,
+        "trainIdx": 700,
+        "distance": 99.12113952636719
+    },
+    {
+        "queryIdx": 746,
+        "trainIdx": 697,
+        "distance": 47.59201431274414
+    },
+    {
+        "queryIdx": 747,
+        "trainIdx": 698,
+        "distance": 82.64986419677734
+    },
+    {
+        "queryIdx": 749,
+        "trainIdx": 702,
+        "distance": 78.49203491210938
+    },
+    {
+        "queryIdx": 750,
+        "trainIdx": 703,
+        "distance": 29.291637420654297
+    },
+    {
+        "queryIdx": 751,
+        "trainIdx": 704,
+        "distance": 87.10912322998047
+    },
+    {
+        "queryIdx": 752,
+        "trainIdx": 705,
+        "distance": 35.46829605102539
+    },
+    {
+        "queryIdx": 753,
+        "trainIdx": 706,
+        "distance": 38.72983169555664
+    },
+    {
+        "queryIdx": 754,
+        "trainIdx": 707,
+        "distance": 59.66573715209961
+    },
+    {
+        "queryIdx": 758,
+        "trainIdx": 708,
+        "distance": 96.88652801513672
+    },
+    {
+        "queryIdx": 762,
+        "trainIdx": 712,
+        "distance": 22.715633392333984
+    },
+    {
+        "queryIdx": 768,
+        "trainIdx": 721,
+        "distance": 57.905094146728516
+    },
+    {
+        "queryIdx": 771,
+        "trainIdx": 723,
+        "distance": 53.600372314453125
+    },
+    {
+        "queryIdx": 783,
+        "trainIdx": 729,
+        "distance": 82.20097351074219
+    },
+    {
+        "queryIdx": 784,
+        "trainIdx": 730,
+        "distance": 62.2414665222168
+    },
+    {
+        "queryIdx": 785,
+        "trainIdx": 731,
+        "distance": 58.24087905883789
+    },
+    {
+        "queryIdx": 788,
+        "trainIdx": 738,
+        "distance": 88.10221099853516
+    },
+    {
+        "queryIdx": 789,
+        "trainIdx": 739,
+        "distance": 27.055498123168945
+    },
+    {
+        "queryIdx": 792,
+        "trainIdx": 743,
+        "distance": 108.82554626464844
+    },
+    {
+        "queryIdx": 793,
+        "trainIdx": 741,
+        "distance": 80.48602294921875
+    },
+    {
+        "queryIdx": 794,
+        "trainIdx": 742,
+        "distance": 59.56509017944336
+    },
+    {
+        "queryIdx": 795,
+        "trainIdx": 744,
+        "distance": 31.827661514282227
+    },
+    {
+        "queryIdx": 796,
+        "trainIdx": 745,
+        "distance": 36.2353401184082
+    },
+    {
+        "queryIdx": 801,
+        "trainIdx": 750,
+        "distance": 28.337255477905273
+    },
+    {
+        "queryIdx": 802,
+        "trainIdx": 753,
+        "distance": 36.207733154296875
+    },
+    {
+        "queryIdx": 804,
+        "trainIdx": 756,
+        "distance": 49.61854553222656
+    },
+    {
+        "queryIdx": 806,
+        "trainIdx": 761,
+        "distance": 36.878177642822266
+    },
+    {
+        "queryIdx": 809,
+        "trainIdx": 764,
+        "distance": 29.034461975097656
+    },
+    {
+        "queryIdx": 814,
+        "trainIdx": 770,
+        "distance": 114.75190734863281
+    },
+    {
+        "queryIdx": 815,
+        "trainIdx": 771,
+        "distance": 38.742740631103516
+    },
+    {
+        "queryIdx": 816,
+        "trainIdx": 772,
+        "distance": 38.832977294921875
+    },
+    {
+        "queryIdx": 818,
+        "trainIdx": 773,
+        "distance": 34.58323287963867
+    },
+    {
+        "queryIdx": 819,
+        "trainIdx": 775,
+        "distance": 47.25463104248047
+    },
+    {
+        "queryIdx": 820,
+        "trainIdx": 776,
+        "distance": 45.74931716918945
+    },
+    {
+        "queryIdx": 821,
+        "trainIdx": 777,
+        "distance": 32.924156188964844
+    },
+    {
+        "queryIdx": 824,
+        "trainIdx": 783,
+        "distance": 36.06937789916992
+    },
+    {
+        "queryIdx": 833,
+        "trainIdx": 787,
+        "distance": 53.93514633178711
+    },
+    {
+        "queryIdx": 835,
+        "trainIdx": 788,
+        "distance": 35.42597961425781
+    },
+    {
+        "queryIdx": 836,
+        "trainIdx": 790,
+        "distance": 38.987178802490234
+    },
+    {
+        "queryIdx": 837,
+        "trainIdx": 791,
+        "distance": 54.4058837890625
+    },
+    {
+        "queryIdx": 839,
+        "trainIdx": 796,
+        "distance": 37.6961555480957
+    },
+    {
+        "queryIdx": 842,
+        "trainIdx": 799,
+        "distance": 118.36384582519531
+    },
+    {
+        "queryIdx": 844,
+        "trainIdx": 801,
+        "distance": 25.436195373535156
+    },
+    {
+        "queryIdx": 845,
+        "trainIdx": 802,
+        "distance": 32.893768310546875
+    },
+    {
+        "queryIdx": 849,
+        "trainIdx": 803,
+        "distance": 103.06793975830078
+    },
+    {
+        "queryIdx": 850,
+        "trainIdx": 804,
+        "distance": 75.19308471679688
+    },
+    {
+        "queryIdx": 851,
+        "trainIdx": 805,
+        "distance": 26.362852096557617
+    },
+    {
+        "queryIdx": 852,
+        "trainIdx": 806,
+        "distance": 23.51595115661621
+    },
+    {
+        "queryIdx": 853,
+        "trainIdx": 807,
+        "distance": 30.789608001708984
+    },
+    {
+        "queryIdx": 854,
+        "trainIdx": 810,
+        "distance": 48.332183837890625
+    },
+    {
+        "queryIdx": 856,
+        "trainIdx": 811,
+        "distance": 58.847259521484375
+    },
+    {
+        "queryIdx": 859,
+        "trainIdx": 812,
+        "distance": 50.950958251953125
+    },
+    {
+        "queryIdx": 862,
+        "trainIdx": 815,
+        "distance": 97.50384521484375
+    },
+    {
+        "queryIdx": 863,
+        "trainIdx": 817,
+        "distance": 33.22649383544922
+    },
+    {
+        "queryIdx": 864,
+        "trainIdx": 818,
+        "distance": 35.07135772705078
+    },
+    {
+        "queryIdx": 866,
+        "trainIdx": 821,
+        "distance": 27.82085609436035
+    },
+    {
+        "queryIdx": 869,
+        "trainIdx": 822,
+        "distance": 34.496376037597656
+    },
+    {
+        "queryIdx": 870,
+        "trainIdx": 823,
+        "distance": 104.44136810302734
+    },
+    {
+        "queryIdx": 871,
+        "trainIdx": 824,
+        "distance": 120.71868133544922
+    },
+    {
+        "queryIdx": 872,
+        "trainIdx": 826,
+        "distance": 43.9886360168457
+    },
+    {
+        "queryIdx": 873,
+        "trainIdx": 827,
+        "distance": 31.4483699798584
+    },
+    {
+        "queryIdx": 875,
+        "trainIdx": 829,
+        "distance": 33.911651611328125
+    },
+    {
+        "queryIdx": 882,
+        "trainIdx": 830,
+        "distance": 98.19877624511719
+    },
+    {
+        "queryIdx": 884,
+        "trainIdx": 831,
+        "distance": 36.98648452758789
+    },
+    {
+        "queryIdx": 885,
+        "trainIdx": 832,
+        "distance": 45.97825622558594
+    },
+    {
+        "queryIdx": 886,
+        "trainIdx": 833,
+        "distance": 101.13851928710938
+    },
+    {
+        "queryIdx": 887,
+        "trainIdx": 838,
+        "distance": 48.425201416015625
+    },
+    {
+        "queryIdx": 890,
+        "trainIdx": 844,
+        "distance": 157.8258514404297
+    },
+    {
+        "queryIdx": 891,
+        "trainIdx": 846,
+        "distance": 40.49691390991211
+    },
+    {
+        "queryIdx": 895,
+        "trainIdx": 847,
+        "distance": 58.18934631347656
+    },
+    {
+        "queryIdx": 896,
+        "trainIdx": 848,
+        "distance": 42.55584716796875
+    },
+    {
+        "queryIdx": 899,
+        "trainIdx": 851,
+        "distance": 34.885528564453125
+    },
+    {
+        "queryIdx": 902,
+        "trainIdx": 856,
+        "distance": 86.29020690917969
+    },
+    {
+        "queryIdx": 903,
+        "trainIdx": 857,
+        "distance": 67.35725402832031
+    },
+    {
+        "queryIdx": 906,
+        "trainIdx": 859,
+        "distance": 70.02142333984375
+    },
+    {
+        "queryIdx": 909,
+        "trainIdx": 861,
+        "distance": 36.86461639404297
+    },
+    {
+        "queryIdx": 916,
+        "trainIdx": 865,
+        "distance": 26.476404190063477
+    },
+    {
+        "queryIdx": 922,
+        "trainIdx": 867,
+        "distance": 186.6145782470703
+    },
+    {
+        "queryIdx": 923,
+        "trainIdx": 869,
+        "distance": 31.496030807495117
+    },
+    {
+        "queryIdx": 925,
+        "trainIdx": 870,
+        "distance": 36.82390594482422
+    },
+    {
+        "queryIdx": 926,
+        "trainIdx": 871,
+        "distance": 71.56116485595703
+    },
+    {
+        "queryIdx": 927,
+        "trainIdx": 872,
+        "distance": 52.32590103149414
+    },
+    {
+        "queryIdx": 931,
+        "trainIdx": 876,
+        "distance": 46.303348541259766
+    },
+    {
+        "queryIdx": 937,
+        "trainIdx": 884,
+        "distance": 110.1226577758789
+    },
+    {
+        "queryIdx": 939,
+        "trainIdx": 885,
+        "distance": 36.207733154296875
+    },
+    {
+        "queryIdx": 946,
+        "trainIdx": 896,
+        "distance": 90.03887939453125
+    },
+    {
+        "queryIdx": 947,
+        "trainIdx": 897,
+        "distance": 71.40727996826172
+    },
+    {
+        "queryIdx": 948,
+        "trainIdx": 898,
+        "distance": 63.39558410644531
+    },
+    {
+        "queryIdx": 949,
+        "trainIdx": 902,
+        "distance": 66.52819061279297
+    },
+    {
+        "queryIdx": 953,
+        "trainIdx": 903,
+        "distance": 30.21588897705078
+    },
+    {
+        "queryIdx": 957,
+        "trainIdx": 905,
+        "distance": 130.72872924804688
+    },
+    {
+        "queryIdx": 959,
+        "trainIdx": 906,
+        "distance": 50.48762130737305
+    },
+    {
+        "queryIdx": 960,
+        "trainIdx": 910,
+        "distance": 63.087242126464844
+    },
+    {
+        "queryIdx": 961,
+        "trainIdx": 911,
+        "distance": 40.743099212646484
+    },
+    {
+        "queryIdx": 965,
+        "trainIdx": 914,
+        "distance": 105.99528503417969
+    },
+    {
+        "queryIdx": 966,
+        "trainIdx": 915,
+        "distance": 27.312999725341797
+    },
+    {
+        "queryIdx": 969,
+        "trainIdx": 922,
+        "distance": 25.15949058532715
+    },
+    {
+        "queryIdx": 970,
+        "trainIdx": 923,
+        "distance": 38.52272033691406
+    },
+    {
+        "queryIdx": 972,
+        "trainIdx": 925,
+        "distance": 79.94998168945312
+    },
+    {
+        "queryIdx": 977,
+        "trainIdx": 929,
+        "distance": 41.29164505004883
+    },
+    {
+        "queryIdx": 979,
+        "trainIdx": 930,
+        "distance": 38.236106872558594
+    },
+    {
+        "queryIdx": 981,
+        "trainIdx": 933,
+        "distance": 55.71355438232422
+    },
+    {
+        "queryIdx": 982,
+        "trainIdx": 934,
+        "distance": 53.35728454589844
+    },
+    {
+        "queryIdx": 983,
+        "trainIdx": 935,
+        "distance": 90.69178771972656
+    },
+    {
+        "queryIdx": 987,
+        "trainIdx": 938,
+        "distance": 34.08811950683594
+    },
+    {
+        "queryIdx": 988,
+        "trainIdx": 939,
+        "distance": 33.970577239990234
+    },
+    {
+        "queryIdx": 990,
+        "trainIdx": 942,
+        "distance": 150.159912109375
+    },
+    {
+        "queryIdx": 991,
+        "trainIdx": 945,
+        "distance": 28.0
+    },
+    {
+        "queryIdx": 992,
+        "trainIdx": 944,
+        "distance": 97.62683868408203
+    },
+    {
+        "queryIdx": 993,
+        "trainIdx": 946,
+        "distance": 40.137264251708984
+    },
+    {
+        "queryIdx": 994,
+        "trainIdx": 948,
+        "distance": 67.55738067626953
+    },
+    {
+        "queryIdx": 995,
+        "trainIdx": 949,
+        "distance": 77.29812622070312
+    },
+    {
+        "queryIdx": 998,
+        "trainIdx": 954,
+        "distance": 43.32435989379883
+    },
+    {
+        "queryIdx": 1002,
+        "trainIdx": 958,
+        "distance": 41.06093215942383
+    },
+    {
+        "queryIdx": 1005,
+        "trainIdx": 961,
+        "distance": 41.84495162963867
+    },
+    {
+        "queryIdx": 1012,
+        "trainIdx": 962,
+        "distance": 35.7071418762207
+    },
+    {
+        "queryIdx": 1013,
+        "trainIdx": 963,
+        "distance": 38.457767486572266
+    },
+    {
+        "queryIdx": 1015,
+        "trainIdx": 968,
+        "distance": 122.57650756835938
+    },
+    {
+        "queryIdx": 1017,
+        "trainIdx": 969,
+        "distance": 127.7027816772461
+    },
+    {
+        "queryIdx": 1018,
+        "trainIdx": 970,
+        "distance": 31.33687973022461
+    },
+    {
+        "queryIdx": 1019,
+        "trainIdx": 971,
+        "distance": 52.94336700439453
+    },
+    {
+        "queryIdx": 1020,
+        "trainIdx": 973,
+        "distance": 57.680152893066406
+    },
+    {
+        "queryIdx": 1021,
+        "trainIdx": 974,
+        "distance": 38.85871887207031
+    },
+    {
+        "queryIdx": 1024,
+        "trainIdx": 975,
+        "distance": 79.13911437988281
+    },
+    {
+        "queryIdx": 1025,
+        "trainIdx": 975,
+        "distance": 125.63836669921875
+    },
+    {
+        "queryIdx": 1026,
+        "trainIdx": 976,
+        "distance": 44.21538162231445
+    },
+    {
+        "queryIdx": 1029,
+        "trainIdx": 982,
+        "distance": 58.29236602783203
+    },
+    {
+        "queryIdx": 1030,
+        "trainIdx": 983,
+        "distance": 37.81534194946289
+    },
+    {
+        "queryIdx": 1033,
+        "trainIdx": 989,
+        "distance": 24.454038619995117
+    },
+    {
+        "queryIdx": 1034,
+        "trainIdx": 993,
+        "distance": 100.45894622802734
+    },
+    {
+        "queryIdx": 1035,
+        "trainIdx": 994,
+        "distance": 37.48332977294922
+    },
+    {
+        "queryIdx": 1036,
+        "trainIdx": 995,
+        "distance": 25.039968490600586
+    },
+    {
+        "queryIdx": 1039,
+        "trainIdx": 998,
+        "distance": 33.71942901611328
+    },
+    {
+        "queryIdx": 1042,
+        "trainIdx": 1002,
+        "distance": 81.16033172607422
+    },
+    {
+        "queryIdx": 1047,
+        "trainIdx": 1005,
+        "distance": 52.54521942138672
+    },
+    {
+        "queryIdx": 1048,
+        "trainIdx": 1006,
+        "distance": 50.94114303588867
+    },
+    {
+        "queryIdx": 1050,
+        "trainIdx": 1008,
+        "distance": 63.70243453979492
+    },
+    {
+        "queryIdx": 1063,
+        "trainIdx": 1021,
+        "distance": 64.14826202392578
+    },
+    {
+        "queryIdx": 1064,
+        "trainIdx": 1023,
+        "distance": 224.40811157226562
+    },
+    {
+        "queryIdx": 1067,
+        "trainIdx": 1025,
+        "distance": 35.22782897949219
+    },
+    {
+        "queryIdx": 1068,
+        "trainIdx": 1026,
+        "distance": 28.635643005371094
+    },
+    {
+        "queryIdx": 1069,
+        "trainIdx": 1027,
+        "distance": 48.6723747253418
+    },
+    {
+        "queryIdx": 1070,
+        "trainIdx": 1028,
+        "distance": 29.84962272644043
+    },
+    {
+        "queryIdx": 1071,
+        "trainIdx": 1029,
+        "distance": 54.881690979003906
+    },
+    {
+        "queryIdx": 1072,
+        "trainIdx": 1030,
+        "distance": 64.36614227294922
+    },
+    {
+        "queryIdx": 1073,
+        "trainIdx": 1032,
+        "distance": 43.220367431640625
+    },
+    {
+        "queryIdx": 1074,
+        "trainIdx": 1031,
+        "distance": 23.323806762695312
+    },
+    {
+        "queryIdx": 1075,
+        "trainIdx": 1036,
+        "distance": 28.05352020263672
+    },
+    {
+        "queryIdx": 1076,
+        "trainIdx": 1037,
+        "distance": 29.866369247436523
+    },
+    {
+        "queryIdx": 1077,
+        "trainIdx": 1034,
+        "distance": 48.51803970336914
+    },
+    {
+        "queryIdx": 1078,
+        "trainIdx": 1035,
+        "distance": 51.60426330566406
+    },
+    {
+        "queryIdx": 1081,
+        "trainIdx": 1042,
+        "distance": 20.928449630737305
+    },
+    {
+        "queryIdx": 1087,
+        "trainIdx": 1052,
+        "distance": 60.81118392944336
+    },
+    {
+        "queryIdx": 1088,
+        "trainIdx": 1053,
+        "distance": 37.38983917236328
+    },
+    {
+        "queryIdx": 1090,
+        "trainIdx": 1054,
+        "distance": 71.21095275878906
+    },
+    {
+        "queryIdx": 1093,
+        "trainIdx": 1062,
+        "distance": 100.74720764160156
+    },
+    {
+        "queryIdx": 1095,
+        "trainIdx": 1064,
+        "distance": 42.64973449707031
+    },
+    {
+        "queryIdx": 1096,
+        "trainIdx": 1068,
+        "distance": 23.895606994628906
+    },
+    {
+        "queryIdx": 1097,
+        "trainIdx": 1067,
+        "distance": 32.4499626159668
+    },
+    {
+        "queryIdx": 1099,
+        "trainIdx": 1069,
+        "distance": 78.39643096923828
+    },
+    {
+        "queryIdx": 1102,
+        "trainIdx": 1072,
+        "distance": 28.337255477905273
+    },
+    {
+        "queryIdx": 1107,
+        "trainIdx": 1076,
+        "distance": 54.12947463989258
+    },
+    {
+        "queryIdx": 1111,
+        "trainIdx": 1078,
+        "distance": 85.74380493164062
+    },
+    {
+        "queryIdx": 1112,
+        "trainIdx": 1079,
+        "distance": 43.30126953125
+    },
+    {
+        "queryIdx": 1113,
+        "trainIdx": 1080,
+        "distance": 73.73601531982422
+    },
+    {
+        "queryIdx": 1114,
+        "trainIdx": 1081,
+        "distance": 38.14446258544922
+    },
+    {
+        "queryIdx": 1115,
+        "trainIdx": 1083,
+        "distance": 36.551334381103516
+    },
+    {
+        "queryIdx": 1116,
+        "trainIdx": 1084,
+        "distance": 79.72452545166016
+    },
+    {
+        "queryIdx": 1118,
+        "trainIdx": 1086,
+        "distance": 26.53299903869629
+    },
+    {
+        "queryIdx": 1119,
+        "trainIdx": 1087,
+        "distance": 38.755645751953125
+    },
+    {
+        "queryIdx": 1120,
+        "trainIdx": 1088,
+        "distance": 55.54277801513672
+    },
+    {
+        "queryIdx": 1121,
+        "trainIdx": 1090,
+        "distance": 167.03892517089844
+    },
+    {
+        "queryIdx": 1123,
+        "trainIdx": 1091,
+        "distance": 43.46262741088867
+    },
+    {
+        "queryIdx": 1124,
+        "trainIdx": 1092,
+        "distance": 30.610456466674805
+    },
+    {
+        "queryIdx": 1125,
+        "trainIdx": 1093,
+        "distance": 29.816102981567383
+    },
+    {
+        "queryIdx": 1126,
+        "trainIdx": 1094,
+        "distance": 92.87625885009766
+    },
+    {
+        "queryIdx": 1127,
+        "trainIdx": 1095,
+        "distance": 29.171903610229492
+    },
+    {
+        "queryIdx": 1131,
+        "trainIdx": 1096,
+        "distance": 60.56401443481445
+    },
+    {
+        "queryIdx": 1132,
+        "trainIdx": 1097,
+        "distance": 65.25334930419922
+    },
+    {
+        "queryIdx": 1133,
+        "trainIdx": 1098,
+        "distance": 81.54139709472656
+    },
+    {
+        "queryIdx": 1136,
+        "trainIdx": 1099,
+        "distance": 38.94868469238281
+    },
+    {
+        "queryIdx": 1137,
+        "trainIdx": 1100,
+        "distance": 36.551334381103516
+    },
+    {
+        "queryIdx": 1139,
+        "trainIdx": 1105,
+        "distance": 48.80573654174805
+    },
+    {
+        "queryIdx": 1140,
+        "trainIdx": 1106,
+        "distance": 29.664793014526367
+    },
+    {
+        "queryIdx": 1141,
+        "trainIdx": 1109,
+        "distance": 62.48999786376953
+    },
+    {
+        "queryIdx": 1144,
+        "trainIdx": 1112,
+        "distance": 45.51922607421875
+    },
+    {
+        "queryIdx": 1147,
+        "trainIdx": 1113,
+        "distance": 22.427661895751953
+    },
+    {
+        "queryIdx": 1153,
+        "trainIdx": 1118,
+        "distance": 60.62177658081055
+    },
+    {
+        "queryIdx": 1154,
+        "trainIdx": 1119,
+        "distance": 63.537391662597656
+    },
+    {
+        "queryIdx": 1155,
+        "trainIdx": 1120,
+        "distance": 79.6743392944336
+    },
+    {
+        "queryIdx": 1156,
+        "trainIdx": 1116,
+        "distance": 94.48280334472656
+    },
+    {
+        "queryIdx": 1157,
+        "trainIdx": 1117,
+        "distance": 41.218929290771484
+    },
+    {
+        "queryIdx": 1158,
+        "trainIdx": 1121,
+        "distance": 55.75840759277344
+    },
+    {
+        "queryIdx": 1160,
+        "trainIdx": 1122,
+        "distance": 58.54912567138672
+    },
+    {
+        "queryIdx": 1161,
+        "trainIdx": 1123,
+        "distance": 70.34912872314453
+    },
+    {
+        "queryIdx": 1162,
+        "trainIdx": 1126,
+        "distance": 32.264530181884766
+    },
+    {
+        "queryIdx": 1164,
+        "trainIdx": 1124,
+        "distance": 47.381431579589844
+    },
+    {
+        "queryIdx": 1165,
+        "trainIdx": 1125,
+        "distance": 93.13430786132812
+    },
+    {
+        "queryIdx": 1169,
+        "trainIdx": 1132,
+        "distance": 43.32435989379883
+    },
+    {
+        "queryIdx": 1172,
+        "trainIdx": 1134,
+        "distance": 67.29041290283203
+    },
+    {
+        "queryIdx": 1173,
+        "trainIdx": 1135,
+        "distance": 22.825424194335938
+    },
+    {
+        "queryIdx": 1174,
+        "trainIdx": 1137,
+        "distance": 36.63331985473633
+    },
+    {
+        "queryIdx": 1175,
+        "trainIdx": 1138,
+        "distance": 32.295509338378906
+    },
+    {
+        "queryIdx": 1178,
+        "trainIdx": 1145,
+        "distance": 32.31098937988281
+    },
+    {
+        "queryIdx": 1181,
+        "trainIdx": 1147,
+        "distance": 41.27953338623047
+    },
+    {
+        "queryIdx": 1182,
+        "trainIdx": 1148,
+        "distance": 67.0745849609375
+    },
+    {
+        "queryIdx": 1183,
+        "trainIdx": 1149,
+        "distance": 43.37049865722656
+    },
+    {
+        "queryIdx": 1184,
+        "trainIdx": 1151,
+        "distance": 96.18212127685547
+    },
+    {
+        "queryIdx": 1188,
+        "trainIdx": 1154,
+        "distance": 116.17228698730469
+    },
+    {
+        "queryIdx": 1191,
+        "trainIdx": 1153,
+        "distance": 157.1527862548828
+    },
+    {
+        "queryIdx": 1192,
+        "trainIdx": 1156,
+        "distance": 36.51027297973633
+    },
+    {
+        "queryIdx": 1193,
+        "trainIdx": 1155,
+        "distance": 89.6158447265625
+    },
+    {
+        "queryIdx": 1195,
+        "trainIdx": 1161,
+        "distance": 30.91925048828125
+    },
+    {
+        "queryIdx": 1196,
+        "trainIdx": 1162,
+        "distance": 27.34958839416504
+    },
+    {
+        "queryIdx": 1197,
+        "trainIdx": 1165,
+        "distance": 26.057628631591797
+    },
+    {
+        "queryIdx": 1202,
+        "trainIdx": 1171,
+        "distance": 41.08527755737305
+    },
+    {
+        "queryIdx": 1203,
+        "trainIdx": 1172,
+        "distance": 36.46916580200195
+    },
+    {
+        "queryIdx": 1208,
+        "trainIdx": 1176,
+        "distance": 75.14652252197266
+    },
+    {
+        "queryIdx": 1211,
+        "trainIdx": 1178,
+        "distance": 32.84813690185547
+    },
+    {
+        "queryIdx": 1212,
+        "trainIdx": 1179,
+        "distance": 31.208972930908203
+    },
+    {
+        "queryIdx": 1213,
+        "trainIdx": 1180,
+        "distance": 37.36308288574219
+    },
+    {
+        "queryIdx": 1214,
+        "trainIdx": 1181,
+        "distance": 77.5241928100586
+    },
+    {
+        "queryIdx": 1217,
+        "trainIdx": 1184,
+        "distance": 69.70652770996094
+    },
+    {
+        "queryIdx": 1219,
+        "trainIdx": 1185,
+        "distance": 19.05255889892578
+    },
+    {
+        "queryIdx": 1224,
+        "trainIdx": 1186,
+        "distance": 34.78505325317383
+    },
+    {
+        "queryIdx": 1225,
+        "trainIdx": 1187,
+        "distance": 37.2827033996582
+    },
+    {
+        "queryIdx": 1227,
+        "trainIdx": 1189,
+        "distance": 54.54356002807617
+    },
+    {
+        "queryIdx": 1229,
+        "trainIdx": 1190,
+        "distance": 28.1069393157959
+    },
+    {
+        "queryIdx": 1239,
+        "trainIdx": 1191,
+        "distance": 54.61684799194336
+    },
+    {
+        "queryIdx": 1240,
+        "trainIdx": 1192,
+        "distance": 48.559242248535156
+    },
+    {
+        "queryIdx": 1241,
+        "trainIdx": 1193,
+        "distance": 37.616485595703125
+    },
+    {
+        "queryIdx": 1247,
+        "trainIdx": 1200,
+        "distance": 101.88228607177734
+    },
+    {
+        "queryIdx": 1249,
+        "trainIdx": 1204,
+        "distance": 70.45565795898438
+    },
+    {
+        "queryIdx": 1250,
+        "trainIdx": 1205,
+        "distance": 79.7496109008789
+    },
+    {
+        "queryIdx": 1253,
+        "trainIdx": 1207,
+        "distance": 40.03748321533203
+    },
+    {
+        "queryIdx": 1255,
+        "trainIdx": 1211,
+        "distance": 77.87811279296875
+    },
+    {
+        "queryIdx": 1260,
+        "trainIdx": 1214,
+        "distance": 29.171903610229492
+    },
+    {
+        "queryIdx": 1261,
+        "trainIdx": 1218,
+        "distance": 103.66773986816406
+    },
+    {
+        "queryIdx": 1262,
+        "trainIdx": 1219,
+        "distance": 80.7155532836914
+    },
+    {
+        "queryIdx": 1267,
+        "trainIdx": 1223,
+        "distance": 22.360679626464844
+    },
+    {
+        "queryIdx": 1268,
+        "trainIdx": 1221,
+        "distance": 44.777225494384766
+    },
+    {
+        "queryIdx": 1269,
+        "trainIdx": 1222,
+        "distance": 73.47108459472656
+    },
+    {
+        "queryIdx": 1272,
+        "trainIdx": 1227,
+        "distance": 95.36770629882812
+    },
+    {
+        "queryIdx": 1273,
+        "trainIdx": 1228,
+        "distance": 98.2751235961914
+    },
+    {
+        "queryIdx": 1274,
+        "trainIdx": 1231,
+        "distance": 25.70992088317871
+    },
+    {
+        "queryIdx": 1275,
+        "trainIdx": 1233,
+        "distance": 43.95452117919922
+    },
+    {
+        "queryIdx": 1279,
+        "trainIdx": 1234,
+        "distance": 52.076866149902344
+    },
+    {
+        "queryIdx": 1280,
+        "trainIdx": 1236,
+        "distance": 42.94182205200195
+    },
+    {
+        "queryIdx": 1290,
+        "trainIdx": 1240,
+        "distance": 67.9190673828125
+    },
+    {
+        "queryIdx": 1292,
+        "trainIdx": 1242,
+        "distance": 28.42534065246582
+    },
+    {
+        "queryIdx": 1296,
+        "trainIdx": 1243,
+        "distance": 38.340579986572266
+    },
+    {
+        "queryIdx": 1297,
+        "trainIdx": 1244,
+        "distance": 35.958309173583984
+    },
+    {
+        "queryIdx": 1304,
+        "trainIdx": 1255,
+        "distance": 74.45803833007812
+    },
+    {
+        "queryIdx": 1305,
+        "trainIdx": 1256,
+        "distance": 36.78314971923828
+    },
+    {
+        "queryIdx": 1307,
+        "trainIdx": 1257,
+        "distance": 48.6209831237793
+    },
+    {
+        "queryIdx": 1310,
+        "trainIdx": 1262,
+        "distance": 147.891845703125
+    },
+    {
+        "queryIdx": 1312,
+        "trainIdx": 1264,
+        "distance": 60.80295944213867
+    },
+    {
+        "queryIdx": 1316,
+        "trainIdx": 1266,
+        "distance": 106.74268341064453
+    },
+    {
+        "queryIdx": 1318,
+        "trainIdx": 1267,
+        "distance": 44.32831954956055
+    },
+    {
+        "queryIdx": 1320,
+        "trainIdx": 1269,
+        "distance": 46.249324798583984
+    },
+    {
+        "queryIdx": 1323,
+        "trainIdx": 1272,
+        "distance": 32.98484420776367
+    },
+    {
+        "queryIdx": 1327,
+        "trainIdx": 1273,
+        "distance": 34.30743408203125
+    },
+    {
+        "queryIdx": 1328,
+        "trainIdx": 1274,
+        "distance": 89.39798736572266
+    },
+    {
+        "queryIdx": 1333,
+        "trainIdx": 1280,
+        "distance": 24.454038619995117
+    },
+    {
+        "queryIdx": 1334,
+        "trainIdx": 1282,
+        "distance": 41.412559509277344
+    },
+    {
+        "queryIdx": 1335,
+        "trainIdx": 1283,
+        "distance": 47.095645904541016
+    },
+    {
+        "queryIdx": 1336,
+        "trainIdx": 1284,
+        "distance": 92.86549377441406
+    },
+    {
+        "queryIdx": 1341,
+        "trainIdx": 1285,
+        "distance": 36.30426788330078
+    },
+    {
+        "queryIdx": 1342,
+        "trainIdx": 1286,
+        "distance": 34.78505325317383
+    },
+    {
+        "queryIdx": 1343,
+        "trainIdx": 1287,
+        "distance": 35.29872512817383
+    },
+    {
+        "queryIdx": 1344,
+        "trainIdx": 1288,
+        "distance": 19.02629852294922
+    },
+    {
+        "queryIdx": 1345,
+        "trainIdx": 1289,
+        "distance": 73.70210266113281
+    },
+    {
+        "queryIdx": 1346,
+        "trainIdx": 1290,
+        "distance": 53.02829360961914
+    },
+    {
+        "queryIdx": 1349,
+        "trainIdx": 1291,
+        "distance": 57.27128601074219
+    },
+    {
+        "queryIdx": 1350,
+        "trainIdx": 1292,
+        "distance": 68.6148681640625
+    },
+    {
+        "queryIdx": 1351,
+        "trainIdx": 1293,
+        "distance": 30.463092803955078
+    },
+    {
+        "queryIdx": 1352,
+        "trainIdx": 1294,
+        "distance": 32.68027114868164
+    },
+    {
+        "queryIdx": 1353,
+        "trainIdx": 1295,
+        "distance": 44.63182830810547
+    },
+    {
+        "queryIdx": 1355,
+        "trainIdx": 1297,
+        "distance": 32.233524322509766
+    },
+    {
+        "queryIdx": 1356,
+        "trainIdx": 1299,
+        "distance": 19.697715759277344
+    },
+    {
+        "queryIdx": 1357,
+        "trainIdx": 1298,
+        "distance": 66.30233764648438
+    },
+    {
+        "queryIdx": 1365,
+        "trainIdx": 1302,
+        "distance": 38.26225280761719
+    },
+    {
+        "queryIdx": 1366,
+        "trainIdx": 1303,
+        "distance": 138.51715087890625
+    },
+    {
+        "queryIdx": 1368,
+        "trainIdx": 1305,
+        "distance": 64.68384552001953
+    },
+    {
+        "queryIdx": 1369,
+        "trainIdx": 1306,
+        "distance": 26.172504425048828
+    },
+    {
+        "queryIdx": 1370,
+        "trainIdx": 1307,
+        "distance": 108.67382049560547
+    },
+    {
+        "queryIdx": 1372,
+        "trainIdx": 1312,
+        "distance": 33.541019439697266
+    },
+    {
+        "queryIdx": 1377,
+        "trainIdx": 1313,
+        "distance": 33.61547088623047
+    },
+    {
+        "queryIdx": 1378,
+        "trainIdx": 1314,
+        "distance": 23.83275032043457
+    },
+    {
+        "queryIdx": 1379,
+        "trainIdx": 1315,
+        "distance": 29.393877029418945
+    },
+    {
+        "queryIdx": 1381,
+        "trainIdx": 1319,
+        "distance": 72.15261840820312
+    },
+    {
+        "queryIdx": 1382,
+        "trainIdx": 1320,
+        "distance": 30.886890411376953
+    },
+    {
+        "queryIdx": 1383,
+        "trainIdx": 1321,
+        "distance": 69.64912414550781
+    },
+    {
+        "queryIdx": 1385,
+        "trainIdx": 1326,
+        "distance": 39.191837310791016
+    },
+    {
+        "queryIdx": 1386,
+        "trainIdx": 1328,
+        "distance": 29.137603759765625
+    },
+    {
+        "queryIdx": 1390,
+        "trainIdx": 1329,
+        "distance": 43.79497528076172
+    },
+    {
+        "queryIdx": 1391,
+        "trainIdx": 1330,
+        "distance": 50.467811584472656
+    },
+    {
+        "queryIdx": 1392,
+        "trainIdx": 1331,
+        "distance": 74.41101837158203
+    },
+    {
+        "queryIdx": 1393,
+        "trainIdx": 1332,
+        "distance": 46.968074798583984
+    },
+    {
+        "queryIdx": 1394,
+        "trainIdx": 1334,
+        "distance": 32.924156188964844
+    },
+    {
+        "queryIdx": 1395,
+        "trainIdx": 1335,
+        "distance": 38.716922760009766
+    },
+    {
+        "queryIdx": 1396,
+        "trainIdx": 1336,
+        "distance": 30.066593170166016
+    },
+    {
+        "queryIdx": 1397,
+        "trainIdx": 1337,
+        "distance": 31.71750259399414
+    },
+    {
+        "queryIdx": 1402,
+        "trainIdx": 1338,
+        "distance": 73.9594497680664
+    },
+    {
+        "queryIdx": 1403,
+        "trainIdx": 1339,
+        "distance": 42.1307487487793
+    },
+    {
+        "queryIdx": 1408,
+        "trainIdx": 1344,
+        "distance": 31.78049659729004
+    },
+    {
+        "queryIdx": 1412,
+        "trainIdx": 1348,
+        "distance": 28.017850875854492
+    },
+    {
+        "queryIdx": 1413,
+        "trainIdx": 1349,
+        "distance": 44.29446792602539
+    },
+    {
+        "queryIdx": 1414,
+        "trainIdx": 1350,
+        "distance": 100.39422607421875
+    },
+    {
+        "queryIdx": 1418,
+        "trainIdx": 1352,
+        "distance": 30.886890411376953
+    },
+    {
+        "queryIdx": 1420,
+        "trainIdx": 1353,
+        "distance": 41.72529220581055
+    },
+    {
+        "queryIdx": 1421,
+        "trainIdx": 1363,
+        "distance": 79.92496490478516
+    },
+    {
+        "queryIdx": 1424,
+        "trainIdx": 1366,
+        "distance": 40.68169021606445
+    },
+    {
+        "queryIdx": 1425,
+        "trainIdx": 1367,
+        "distance": 72.72550964355469
+    },
+    {
+        "queryIdx": 1430,
+        "trainIdx": 1368,
+        "distance": 86.24964141845703
+    },
+    {
+        "queryIdx": 1431,
+        "trainIdx": 1369,
+        "distance": 25.903667449951172
+    },
+    {
+        "queryIdx": 1432,
+        "trainIdx": 1370,
+        "distance": 22.338308334350586
+    },
+    {
+        "queryIdx": 1436,
+        "trainIdx": 1376,
+        "distance": 40.853397369384766
+    },
+    {
+        "queryIdx": 1440,
+        "trainIdx": 1377,
+        "distance": 40.06245040893555
+    },
+    {
+        "queryIdx": 1443,
+        "trainIdx": 1379,
+        "distance": 40.410396575927734
+    },
+    {
+        "queryIdx": 1445,
+        "trainIdx": 1382,
+        "distance": 27.549955368041992
+    },
+    {
+        "queryIdx": 1446,
+        "trainIdx": 1384,
+        "distance": 77.26577758789062
+    },
+    {
+        "queryIdx": 1447,
+        "trainIdx": 1385,
+        "distance": 75.06663513183594
+    },
+    {
+        "queryIdx": 1448,
+        "trainIdx": 1386,
+        "distance": 51.70106506347656
+    },
+    {
+        "queryIdx": 1453,
+        "trainIdx": 1388,
+        "distance": 35.35533905029297
+    },
+    {
+        "queryIdx": 1455,
+        "trainIdx": 1391,
+        "distance": 50.438079833984375
+    },
+    {
+        "queryIdx": 1456,
+        "trainIdx": 1394,
+        "distance": 27.73084831237793
+    },
+    {
+        "queryIdx": 1457,
+        "trainIdx": 1395,
+        "distance": 42.11888122558594
+    },
+    {
+        "queryIdx": 1458,
+        "trainIdx": 1396,
+        "distance": 67.779052734375
+    },
+    {
+        "queryIdx": 1459,
+        "trainIdx": 1404,
+        "distance": 55.578773498535156
+    },
+    {
+        "queryIdx": 1460,
+        "trainIdx": 1402,
+        "distance": 64.80740356445312
+    },
+    {
+        "queryIdx": 1461,
+        "trainIdx": 1403,
+        "distance": 81.12335968017578
+    },
+    {
+        "queryIdx": 1462,
+        "trainIdx": 1405,
+        "distance": 34.78505325317383
+    },
+    {
+        "queryIdx": 1463,
+        "trainIdx": 1406,
+        "distance": 48.27007293701172
+    },
+    {
+        "queryIdx": 1465,
+        "trainIdx": 1407,
+        "distance": 22.649503707885742
+    },
+    {
+        "queryIdx": 1466,
+        "trainIdx": 1408,
+        "distance": 25.70992088317871
+    },
+    {
+        "queryIdx": 1467,
+        "trainIdx": 1409,
+        "distance": 25.884357452392578
+    },
+    {
+        "queryIdx": 1468,
+        "trainIdx": 1412,
+        "distance": 26.267850875854492
+    },
+    {
+        "queryIdx": 1469,
+        "trainIdx": 1413,
+        "distance": 49.01020431518555
+    },
+    {
+        "queryIdx": 1470,
+        "trainIdx": 1411,
+        "distance": 47.59201431274414
+    },
+    {
+        "queryIdx": 1473,
+        "trainIdx": 1414,
+        "distance": 54.230987548828125
+    },
+    {
+        "queryIdx": 1474,
+        "trainIdx": 1416,
+        "distance": 52.5927734375
+    },
+    {
+        "queryIdx": 1475,
+        "trainIdx": 1417,
+        "distance": 55.34437561035156
+    },
+    {
+        "queryIdx": 1478,
+        "trainIdx": 1418,
+        "distance": 32.015621185302734
+    },
+    {
+        "queryIdx": 1481,
+        "trainIdx": 1420,
+        "distance": 93.80298614501953
+    },
+    {
+        "queryIdx": 1485,
+        "trainIdx": 1422,
+        "distance": 129.46041870117188
+    },
+    {
+        "queryIdx": 1486,
+        "trainIdx": 1425,
+        "distance": 115.42530059814453
+    },
+    {
+        "queryIdx": 1491,
+        "trainIdx": 1431,
+        "distance": 44.855323791503906
+    },
+    {
+        "queryIdx": 1492,
+        "trainIdx": 1432,
+        "distance": 31.272991180419922
+    },
+    {
+        "queryIdx": 1494,
+        "trainIdx": 1437,
+        "distance": 56.38262176513672
+    },
+    {
+        "queryIdx": 1498,
+        "trainIdx": 1452,
+        "distance": 121.53600311279297
+    },
+    {
+        "queryIdx": 1499,
+        "trainIdx": 1453,
+        "distance": 129.7227783203125
+    },
+    {
+        "queryIdx": 1504,
+        "trainIdx": 1457,
+        "distance": 56.409217834472656
+    },
+    {
+        "queryIdx": 1508,
+        "trainIdx": 1458,
+        "distance": 47.434165954589844
+    },
+    {
+        "queryIdx": 1515,
+        "trainIdx": 1459,
+        "distance": 117.09825134277344
+    },
+    {
+        "queryIdx": 1516,
+        "trainIdx": 1460,
+        "distance": 225.50387573242188
+    },
+    {
+        "queryIdx": 1520,
+        "trainIdx": 1466,
+        "distance": 217.43504333496094
+    }
+]

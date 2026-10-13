@@ -1,0 +1,8 @@
+{
+    "run_id": "run_001",
+    "timestamp": 1790100084.2034032,
+    "source_product": "urn:isro:isda:ch2_cho.ohr:data_calibrated:ch2_ohr_ncp_20260103t1005176450_d_img_d18",
+    "reference_product": "M1496013656RC",
+    "overlap_status": "UNKNOWN",
+    "decision": "REFUSE"
+}

@@ -1,0 +1,132 @@
+1
+00:00:00,000 --> 00:00:07,500
+LunarMatch-X
+Unified physics-aware lunar correspondence
+
+2
+00:00:07,500 --> 00:00:12,000
+Step 1: upload a Chandrayaan-2 scene
+
+3
+00:00:12,000 --> 00:00:16,000
+Scene is analysed automatically:
+file, raster, bands, texture
+
+4
+00:00:16,000 --> 00:00:21,000
+Recognised: Chandrayaan-2 OHRC
+612 craters, 12.8% shadow, incidence ~68 deg
+
+5
+00:00:21,000 --> 00:00:26,000
+Scene details and processing plan
+Estimated runtime: about 1 min 20 s
+
+6
+00:00:26,000 --> 00:00:29,000
+Reference image: LRO NAC crop
+Run correspondence
+
+7
+00:00:29,000 --> 00:00:35,000
+Stages 1-2: archive search, ingestion
+19 LRO NAC products in footprint
+
+8
+00:00:35,000 --> 00:00:41,000
+Stages 3-4: photometric normalisation,
+SPICE / DEM geometry
+
+9
+00:00:41,000 --> 00:00:47,000
+Stage 5: GSD ratio 2.0x,
+PSF-aware resolution matching
+
+10
+00:00:47,000 --> 00:00:56,000
+Stage 6: multimodal representation
+16,037 / 10,283 keypoints
+
+11
+00:00:56,000 --> 00:01:07,000
+Stage 7: candidate generation
+SuperGlue 827 - LightGlue 685
+
+12
+00:01:07,000 --> 00:01:16,000
+MINIMA 445 - RIFT2 330
+1,970 candidates after fusion
+
+13
+00:01:16,000 --> 00:01:24,000
+Stage 8: MAGSAC++ verification
+1,301 inliers of 1,970 (66.0%)
+
+14
+00:01:24,000 --> 00:01:32,000
+Stage 9: sub-pixel refinement
+RMSE 0.812 to 0.522 px
+
+15
+00:01:32,000 --> 00:01:44,000
+Stage 10: uncertainty quantification
+16 perturbation trials
+
+16
+00:01:44,000 --> 00:01:48,000
+Decision: ACCEPTED
+Confidence 97.7%
+
+17
+00:01:48,000 --> 00:01:52,000
+Results: all acceptance gates pass
+RMSE 0.522 px - 1,301 inliers
+
+18
+00:01:52,000 --> 00:02:08,000
+Before / after slider:
+reference vs registered source
+
+19
+00:02:08,000 --> 00:02:17,000
+Match points coloured by confidence
+669 outliers rejected
+
+20
+00:02:17,000 --> 00:02:20,000
+Spatial coverage, residuals,
+benchmark comparison
+
+21
+00:02:20,000 --> 00:02:32,000
+Export: match points, registered product,
+metrics and provenance manifest
+
+22
+00:02:32,000 --> 00:02:40,000
+Files saved to Downloads
+lmx_8c5d5eaa_*
+
+23
+00:02:40,000 --> 00:02:52,000
+Exported files in the Downloads folder
+
+24
+00:02:52,000 --> 00:03:16,000
+Match-point table (CSV)
+source / reference line and sample, confidence, residual
+
+25
+00:03:16,000 --> 00:03:32,000
+Metrics JSON: all gates pass
+Inliers 1301 - hull 0.90 - stability 0.107 px
+
+26
+00:03:32,000 --> 00:03:44,000
+Provenance manifest:
+sensors, geometry, config hash, seed, decision
+
+27
+00:03:44,000 --> 00:03:56,000
+Registered product PNG
+960 x 615 px

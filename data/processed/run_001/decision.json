@@ -1,0 +1,10 @@
+{
+    "decision": "REFUSE",
+    "reasons": [
+        "Spatial overlap UNKNOWN, fallback ROI used.",
+        "Insufficient geometrically verified inliers."
+    ],
+    "warnings": [
+        "2D robust geometric baseline only. Not physics-validated."
+    ]
+}

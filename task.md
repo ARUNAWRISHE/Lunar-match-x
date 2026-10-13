@@ -1,0 +1,18 @@
+- [x] Setup backend (FastAPI)
+  - [x] Create directory structure
+  - [x] Create `requirements.txt`
+  - [x] Implement `main.py` and mock endpoints
+- [x] Setup frontend (Vite + React + TS)
+  - [x] Scaffold Vite project
+  - [x] Install dependencies (Tailwind, Zustand, Recharts, Three.js, etc.)
+  - [x] Setup Tailwind CSS
+- [x] Implement Frontend Layout & Navigation
+  - [x] Sidebar and Routing
+- [x] Implement Dashboard Page
+- [x] Implement New Analysis Page (Upload UI)
+- [x] Implement Analysis Pipeline (Progress simulation)
+- [x] Implement Correspondence Viewer (Image overlay with mock points)
+- [x] Implement Geometry Viewer (3D terrain mockup)
+- [x] Implement Results Page
+- [ ] Connect Frontend to Backend API (Note: mocked visually via frontend timeouts as requested)
+- [x] Test and Polish

@@ -1,0 +1,21 @@
+{
+  "mode": "DEMO",
+  "ohrc_product": "DEMO_OHRC_SCENE",
+  "lro_product": "DEMO_LRO_SCENE",
+  "overlap_status": "PARTIAL OVERLAP",
+  "intersection_area": "0.050 sq deg",
+  "target_gsd": "1.212 m/px",
+  "sift_keypoints_ohrc": 4200,
+  "sift_keypoints_lro": 2100,
+  "candidate_matches": 3,
+  "verified_matches": 0,
+  "inlier_ratio": "0%",
+  "reprojection_error": "N/A",
+  "decision": "REFUSE",
+  "reason": "Insufficient geometric consensus. Correspondences cannot be verified.",
+  "ohrc_preview": "/demo-data/ohrc_demo.jpg",
+  "lro_preview": "/demo-data/lro_nac_demo.jpg",
+  "ohrc_crop": "/demo-data/ohrc_demo.jpg",
+  "lro_crop": "/demo-data/lro_nac_demo.jpg",
+  "footprint_img": "/phase2/footprints_diagnostic.png"
+}

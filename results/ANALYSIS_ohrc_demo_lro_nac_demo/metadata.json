@@ -1,0 +1,5 @@
+{
+    "source": "frontend/public/demo-data/ohrc_demo.jpg",
+    "reference": "frontend/public/demo-data/lro_nac_demo.jpg",
+    "status": "COMPLETED"
+}

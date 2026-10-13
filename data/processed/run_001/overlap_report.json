@@ -1,0 +1,29 @@
+{
+    "ohrc_footprint": {
+        "corners": [
+            {
+                "lat": -85.279005,
+                "lon": 27.751481
+            },
+            {
+                "lat": -85.325413,
+                "lon": 26.628534
+            },
+            {
+                "lat": -84.562153,
+                "lon": 22.79426
+            },
+            {
+                "lat": -84.522148,
+                "lon": 23.790313
+            }
+        ]
+    },
+    "lro_footprint": null,
+    "intersection_geometry": null,
+    "intersection_area": null,
+    "ohrc_area": null,
+    "lro_area": null,
+    "overlap_ratio": null,
+    "overlap_status": "UNKNOWN"
+}

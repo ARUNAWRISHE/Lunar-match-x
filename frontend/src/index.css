@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-900: #060a17;
+  --color-navy-850: #0a1128;
+  --color-navy-800: #1c2541;
+  --color-navy-700: #3a506b;
+  --color-cyan-500: #00e5ff;
+  --color-cyan-400: #18ffff;
+  --color-gold-500: #e8a86c;
+  --color-gold-400: #f4c896;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html, body {
+  background-color: var(--color-navy-900);
+  color: #ffffff;
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.25);
+  color: #ffffff;
+}
+
+/* thin sci-fi scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-navy-700); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4a6585; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: var(--tw-star-opacity, 0.4); }
+  50%      { opacity: 1; }
+}
+
+@keyframes drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-1200px); }
+}
+
+@keyframes orbit-dot {
+  0%   { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+@keyframes shooting-star {
+  0%   { opacity: 0; transform: rotate(-32deg) translateX(0); }
+  4%   { opacity: 1; }
+  18%  { opacity: 0; transform: rotate(-32deg) translateX(340px); }
+  100% { opacity: 0; transform: rotate(-32deg) translateX(340px); }
+}
+
+.font-display { font-family: var(--font-display); }
+.font-mono-sf  { font-family: var(--font-mono); }

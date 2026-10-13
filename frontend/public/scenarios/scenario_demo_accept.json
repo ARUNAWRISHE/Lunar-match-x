@@ -1,0 +1,21 @@
+{
+  "mode": "DEMO",
+  "ohrc_product": "DEMO_OHRC_SCENE",
+  "lro_product": "DEMO_LRO_SCENE",
+  "overlap_status": "FULL CONTAINMENT",
+  "intersection_area": "0.350 sq deg",
+  "target_gsd": "1.212 m/px",
+  "sift_keypoints_ohrc": 15420,
+  "sift_keypoints_lro": 12350,
+  "candidate_matches": 142,
+  "verified_matches": 97,
+  "inlier_ratio": "68%",
+  "reprojection_error": "0.45 px",
+  "decision": "ACCEPT",
+  "reason": "High geometric consensus and sub-pixel accuracy achieved. Physics verified.",
+  "ohrc_preview": "/demo-data/ohrc_demo.jpg",
+  "lro_preview": "/demo-data/lro_nac_demo.jpg",
+  "ohrc_crop": "/demo-data/ohrc_demo.jpg",
+  "lro_crop": "/demo-data/lro_nac_demo.jpg",
+  "footprint_img": "/phase2/footprints_diagnostic.png"
+}
